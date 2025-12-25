@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://finclarityhq.github.io/finclarity-sip-calculator/sitemap.xml
