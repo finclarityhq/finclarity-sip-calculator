@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIP Calculator India | Mutual Fund Returns & Wealth Growth</title>
+
+<meta name="description" content="Free SIP Calculator India. Calculate mutual fund returns, understand compounding, and plan long-term wealth creation using systematic investment plans.">
+
+<meta name="keywords" content="sip calculator india, mutual fund sip returns, investment calculator india, compound interest calculator">
+
+<meta name="author" content="FinClarity India">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+crossorigin="anonymous"></script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "FAQPage",
+"mainEntity": [{
+"@type": "Question",
+"name": "Is SIP better than fixed deposit?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "SIP usually provides higher long-term returns compared to fixed deposits, although market risks apply."
+}
+},
+{
+"@type": "Question",
+"name": "Are SIP returns guaranteed?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "No, SIP returns depend on market performance. However, long-term investing reduces volatility."
+}
+},
+{
+"@type": "Question",
+"name": "How much should I invest monthly in SIP?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "You can start SIP with as little as ₹500 per month. Consistency matters more than amount."
+}
+}]
+}
+</script>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #ffffff);
+    margin: 0;
+    color: #2c2c2c;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+h1 {
+    color: #0b3c5d;
+    font-size: 32px;
+}
+h2 {
+    color: #0b3c5d;
+    margin-top: 35px;
+}
+p {
+    font-size: 17px;
+    line-height: 1.7;
+}
+input, button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+button {
+    background: #0b3c5d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover {
+    background: #092f48;
+}
+.result {
+    background: #eef3f9;
+    padding: 18px;
+    margin-top: 15px;
+    font-size: 18px;
+    border-left: 4px solid #0b3c5d;
+}
+ul li {
+    margin-bottom: 8px;
+}
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+}
+.disclaimer {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-top: 30px;
+    font-size: 14px;
+    border-left: 3px solid #999;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SIP Calculator India – Mutual Fund Investment & Wealth Planning</h1>
+
+<p>
+Systematic Investment Plan (SIP) is one of the most powerful wealth-building strategies for Indian investors. 
+This SIP calculator helps you estimate mutual fund returns and understand how compounding grows your money over time.
+</p>
+
+<h2>SIP Return Calculator</h2>
+
+<label>Monthly Investment Amount (₹)</label>
+<input type="number" id="amount" placeholder="Example: 5000">
+
+<label>Expected Annual Return (%)</label>
+<input type="number" id="rate" placeholder="Example: 12">
+
+<label>Investment Duration (Years)</label>
+<input type="number" id="years" placeholder="Example: 15">
+
+<button onclick="calculateSIP()">Calculate Investment Growth</button>
+
+<div class="result" id="output"></div>
+
+<h2>Understanding SIP & Compounding</h2>
+<p>
+SIP allows investors to invest a fixed amount every month into mutual funds. Over time, returns generated on both principal 
+and previous gains lead to exponential wealth growth — a phenomenon known as compounding.
+</p>
+
+<h2>Why SIP is Ideal for Indian Investors</h2>
+<ul>
+<li>Encourages disciplined investing</li>
+<li>Reduces market timing risk</li>
+<li>Affordable for salaried individuals</li>
+<li>Higher long-term return potential than FDs</li>
+<li>Ideal for retirement and child education planning</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+<p><strong>Is SIP safe?</strong><br>
+SIP invests in market-linked instruments. While short-term volatility exists, long-term SIP investments are historically rewarding.</p>
+
+<p><strong>Can I stop SIP anytime?</strong><br>
+Yes. SIPs are flexible and can be paused or stopped anytime without penalty.</p>
+
+<p><strong>Which mutual fund is best for SIP?</strong><br>
+Equity mutual funds are ideal for long-term goals. Consult a financial advisor for personalized advice.</p>
+
+<div class="disclaimer">
+<strong>Disclaimer:</strong> This calculator is for educational purposes only. Mutual fund investments are subject to market risks.
+</div>
+
+<footer>
+© 2026 FinClarity India | Financial Education Platform
+</footer>
+
+</div>
+
+<script>
+function calculateSIP() {
+    let P = parseFloat(document.getElementById("amount").value);
+    let r = parseFloat(document.getElementById("rate").value) / 100 / 12;
+    let n = parseFloat(document.getElementById("years").value) * 12;
+
+    if (!P || !r || !n) {
+        document.getElementById("output").innerHTML = "Please enter valid values in all fields.";
+        return;
+    }
+
+    let FV = P * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
+    let invested = P * n;
+
+    document.getElementById("output").innerHTML =
+        "Total Invested Amount: ₹" + invested.toLocaleString() +
+        "<br>Estimated Portfolio Value: ₹" + Math.round(FV).toLocaleString();
+}
+</script>
+
+</body>
+</html>
