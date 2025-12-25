@@ -57,10 +57,39 @@
 <style>
 body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
 h1,h2,h3 { color:#006d77; text-align:center; margin-bottom:20px; }
-header { padding:50px 20px; text-align:center; background:linear-gradient(135deg,#009688,#00bfa5); color:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.2); border-bottom-left-radius:20px; border-bottom-right-radius:20px; }
+
+/* Updated Header Styles */
+header {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(135deg,#009688,#00bfa5);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+header h1 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    /* subtle gradient text */
+    background: linear-gradient(45deg, #ffffff, #b2f7ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+header p {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+}
+
 nav { text-align:center; background:#e0f7fa; padding:15px 0; }
 nav a { margin:0 15px; color:#006d77; text-decoration:none; font-weight:bold; transition:0.3s; }
 nav a:hover { color:#00bfa5; text-decoration:underline; }
+
 section { padding:50px 20px; max-width:1000px; margin:auto; }
 .calculator,.faq,.contact,.legal { background:#fff; padding:30px; border-radius:20px; margin-bottom:50px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
 .calculator:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
@@ -71,10 +100,12 @@ button:hover { background:linear-gradient(135deg,#00796b,#00897b); }
 .faq-item { margin-bottom:15px; cursor:pointer; }
 .faq-answer { display:none; padding:10px; background:#e0f2f1; border-radius:8px; }
 footer { text-align:center; padding:25px; background:#e0f7fa; box-shadow:0 -4px 15px rgba(0,0,0,0.1); color:#006d77; }
+
 .collapse-section { margin-bottom:20px; }
 .collapse-header { background:#b2dfdb; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
 .collapse-header:hover { background:#80cbc4; }
 .collapse-body { display:none; background:#e0f2f1; padding:15px; border-radius:8px; }
+
 @media(max-width:768px){ nav a{display:block;margin:10px 0;} }
 </style>
 <script>
@@ -86,9 +117,18 @@ function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i);b.s
 </script>
 </head>
 <body>
-<header><h1>FinClarity HQ</h1><p>Premium Financial Calculators for Smart Investing</p></header>
+
+<header>
+<h1>FinClarity HQ</h1>
+<p>Premium Financial Calculators for Smart Investing</p>
+</header>
+
 <nav>
-<a href="#sip">SIP Calculator</a><a href="#lumpsum">Lumpsum Calculator</a><a href="#swp">SWP Calculator</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+<a href="#sip">SIP Calculator</a>
+<a href="#lumpsum">Lumpsum Calculator</a>
+<a href="#swp">SWP Calculator</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <section id="sip" class="calculator">
@@ -106,7 +146,12 @@ function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i);b.s
 <input type="number" id="ls-principal" placeholder="Principal Amount (₹)">
 <input type="number" id="ls-rate" placeholder="Annual Rate of Return (%)">
 <input type="number" id="ls-years" placeholder="Investment Duration (Years)">
-<select id="ls-freq"><option value="1">Annually</option><option value="2">Half-Yearly</option><option value="4">Quarterly</option><option value="12">Monthly</option></select>
+<select id="ls-freq">
+<option value="1">Annually</option>
+<option value="2">Half-Yearly</option>
+<option value="4">Quarterly</option>
+<option value="12">Monthly</option>
+</select>
 <button onclick="calculateLumpsum()">Calculate</button>
 <div class="result" id="ls-result">Future Value: ₹0.00</div>
 <p>Lumpsum investments involve investing a large amount at once. This approach is suitable when you have a significant sum to invest and want to maximize returns immediately. Compared to SIPs, Lumpsum benefits more during prolonged bull markets but carries timing risks. Proper asset allocation and market analysis can optimize returns. Investors should consider Lumpsum for tax-efficient instruments, retirement contributions, or targeted goals. Combining Lumpsum with SIP strategies can balance risk and growth, offering a flexible approach to wealth accumulation. Monitor performance periodically to ensure alignment with financial goals.</p>
@@ -167,5 +212,6 @@ function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i);b.s
 <p>© 2025 FinClarity HQ. All Rights Reserved.</p>
 <p>Follow us on social media: [Icons Placeholder]</p>
 </footer>
+
 </body>
 </html>
