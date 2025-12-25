@@ -19,21 +19,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <style>
+/* Base */
 body {margin:0; padding:0; font-family:'Poppins',sans-serif; background:#f0f4f8; color:#004080;}
-header {background:linear-gradient(135deg,#1e3c72,#2a5298); color:#fff; padding:80px 20px 60px; text-align:center; border-bottom-left-radius:25px; border-bottom-right-radius:25px; box-shadow:0 6px 25px rgba(0,0,0,0.25);}
-header h1 {font-size:3.6rem; font-weight:900; margin:0; background:linear-gradient(45deg,#ffffff,#a3c4f3); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:2px 2px 4px rgba(0,0,0,0.25);}
-header p {font-size:1.5rem; font-weight:600; margin-top:10px;}
-nav {display:flex; justify-content:center; gap:20px; background:#d0e7f9; padding:15px 0; font-weight:600;}
+header {background:linear-gradient(135deg,#1e3c72,#2a5298); color:#fff; padding:70px 20px 50px; text-align:center; border-bottom-left-radius:25px; border-bottom-right-radius:25px; box-shadow:0 6px 25px rgba(0,0,0,0.25);}
+header h1 {font-size:3.2rem; font-weight:900; margin:0; background:linear-gradient(45deg,#ffffff,#a3c4f3); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:2px 2px 4px rgba(0,0,0,0.25);}
+header p {font-size:1.3rem; font-weight:600; margin-top:10px;}
+nav {display:flex; justify-content:center; gap:20px; background:#d0e7f9; padding:15px 0; font-weight:600; flex-wrap:wrap;}
 nav a {color:#004080; text-decoration:none; transition:0.3s;}
 nav a:hover {color:#2a5298;}
-section {max-width:1000px; margin:60px auto; padding:30px; background:#fff; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;}
-section:hover {transform:translateY(-5px); box-shadow:0 15px 30px rgba(0,0,0,0.12);}
-h2 {text-align:center; font-size:2.2rem; font-weight:700; margin-bottom:25px;}
+section {max-width:1000px; margin:40px auto; padding:25px; background:#fff; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;}
+section:hover {transform:translateY(-3px); box-shadow:0 15px 30px rgba(0,0,0,0.12);}
+h2 {text-align:center; font-size:2rem; font-weight:700; margin-bottom:20px;}
 input, select, textarea, button {width:100%; padding:12px; margin:10px 0; border-radius:10px; border:1px solid #b2dfdb; font-size:16px;}
 button {background:linear-gradient(135deg,#1e3c72,#2a5298); color:#fff; cursor:pointer; font-weight:700; transition:all 0.3s ease;}
 button:hover {transform:scale(1.03); background:linear-gradient(135deg,#16375b,#1f4779);}
-.result {margin-top:20px; font-size:2rem; font-weight:700; text-align:center; background:rgba(0,108,119,0.1); padding:20px; border-radius:15px; color:#006d77; box-shadow:0 6px 20px rgba(0,0,0,0.08);}
-.share-btn {margin-top:15px; display:flex; justify-content:center; gap:8px; opacity:0; transition:opacity 0.5s ease;}
+.result {margin-top:20px; font-size:1.8rem; font-weight:700; text-align:center; background:rgba(0,108,119,0.1); padding:20px; border-radius:15px; color:#006d77; box-shadow:0 6px 20px rgba(0,0,0,0.08);}
+.share-btn {margin-top:15px; display:flex; justify-content:center; gap:8px; opacity:0; transition:opacity 0.5s ease; flex-wrap:wrap;}
 .share-btn button {display:flex; align-items:center; justify-content:center; padding:6px 10px; border-radius:6px; font-size:0.85rem; border:none; cursor:pointer; transition:all 0.3s;}
 .share-btn button i {font-size:0.9rem;}
 .share-btn .twitter {background:#1DA1F2; color:#fff;}
@@ -46,7 +47,22 @@ footer {text-align:center; padding:25px; background:#d0e7f9; box-shadow:0 -4px 1
 .collapse-header {background:#a3c4f3; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; transition:background 0.3s; margin-bottom:5px;}
 .collapse-header:hover {background:#7fa6db;}
 .collapse-body {display:none; padding:15px; border-radius:8px; background:#dbe9f7;}
-@media(max-width:768px){ nav {flex-direction:column; gap:10px;} }
+@media(max-width:768px){
+    header h1 {font-size:2.4rem;}
+    header p {font-size:1.1rem;}
+    section {margin:25px 15px; padding:20px;}
+    input, select, textarea, button {font-size:15px; padding:10px;}
+    .result {font-size:1.5rem; padding:15px;}
+    nav {flex-direction:column; gap:10px;}
+}
+@media(max-width:480px){
+    header h1 {font-size:2rem;}
+    header p {font-size:1rem;}
+    section {padding:15px;}
+    input, select, textarea, button {font-size:14px; padding:8px;}
+    .result {font-size:1.3rem; padding:12px;}
+    .share-btn button {padding:5px; font-size:0.8rem;}
+}
 </style>
 
 <script>
