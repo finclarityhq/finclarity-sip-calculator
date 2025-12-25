@@ -3,112 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinClarity HQ - SIP, Lumpsum & SWP Calculators</title>
-<meta name="description" content="FinClarity HQ offers premium financial calculators including SIP, Lumpsum Investment, and SWP calculators. Plan your investments wisely and grow your wealth.">
+<title>FinClarity HQ - Elite Financial Calculators</title>
+<meta name="description" content="FinClarity HQ offers premium SIP, Lumpsum, and SWP calculators to plan your wealth intelligently. Smart investing starts here.">
 <meta name="keywords" content="SIP Calculator, Lumpsum Calculator, SWP Calculator, Investment Planning, Financial Tools, Wealth Management, FinClarity HQ">
 <meta name="author" content="FinClarity HQ">
 <meta name="google-site-verification" content="L2U5gGeB7xAYiaeujZY90F6faqQhrVcditJi6GMVa48" />
 
-<!-- html2pdf CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<!-- Font Awesome CDN for icons -->
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
+<!-- html2pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 <style>
-body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
-h1,h2,h3 { color:#004080; text-align:center; margin-bottom:20px; }
+/* Base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4f8;
+    color: #004080;
+}
 
 /* Header */
 header {
-    padding: 60px 20px;
-    text-align: center;
-    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    padding: 80px 20px 60px 20px;
+    text-align: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.25);
 }
 header h1 {
-    font-size: 3.4rem;
+    font-size: 3.6rem;
     font-weight: 900;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    background: linear-gradient(45deg, #ffffff, #a3c4f3);
+    margin: 0;
+    background: linear-gradient(45deg,#ffffff,#a3c4f3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
 }
 header p {
     font-size: 1.5rem;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-top: 0;
+    margin-top: 10px;
 }
 
 /* Navigation */
-nav { text-align:center; background:#d0e7f9; padding:15px 0; }
-nav a { margin:0 15px; color:#004080; text-decoration:none; font-weight:bold; transition:0.3s; }
-nav a:hover { color:#2a5298; text-decoration:underline; }
-
-section { padding:50px 20px; max-width:1000px; margin:auto; }
-.calculator,.faq,.contact,.legal { background:#fff; padding:30px; border-radius:20px; margin-bottom:50px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.calculator:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
-
-input,select,textarea,button { padding:12px; margin:10px 0; border-radius:8px; border:1px solid #b2dfdb; width:100%; font-size:16px; }
-button { background:linear-gradient(135deg,#1e3c72,#2a5298); color:#fff; cursor:pointer; font-weight:bold; transition:0.3s; }
-button:hover { background:linear-gradient(135deg,#16375b,#1f4779); }
-
-/* Highlighted result box */
-.result {
-    margin-top:15px;
-    font-weight:bold;
-    text-align:center;
-    font-size:2rem;
-    background:#dbe9f7;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
-    color:#004080;
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #d0e7f9;
+    padding: 15px 0;
+    font-weight: 600;
+}
+nav a {
+    color: #004080;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #2a5298;
 }
 
-/* Social share & PDF buttons with small icons */
+/* Section Styling */
+section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Inputs and Buttons */
+input, select, textarea, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #b2dfdb;
+    font-size: 16px;
+}
+button {
+    background: linear-gradient(135deg,#1e3c72,#2a5298);
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+button:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg,#16375b,#1f4779);
+}
+
+/* Result Box */
+.result {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    background: rgba(0, 108, 119, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    color: #006d77;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Social Share Buttons */
 .share-btn {
-    margin-top:10px;
-    display:flex;
-    justify-content:center;
-    gap:8px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 .share-btn button {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:4px;
-    width:auto;
-    padding:6px 10px;
-    font-size:0.85rem;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.share-btn button i {
+    font-size: 0.9rem;
 }
 .share-btn .twitter { background:#1DA1F2; color:#fff; }
 .share-btn .whatsapp { background:#25D366; color:#fff; }
 .share-btn .facebook { background:#4267B2; color:#fff; }
 .share-btn .pdf { background:#004080; color:#fff; }
-.share-btn button i { font-size:0.9rem; }
-.share-btn button:hover { opacity:0.85; }
+.share-btn button:hover { transform: scale(1.1); }
 
-/* FAQ & Legal */
-.faq-item { margin-bottom:15px; cursor:pointer; }
-.faq-answer { display:none; padding:10px; background:#e0f2f1; border-radius:8px; }
-footer { text-align:center; padding:25px; background:#d0e7f9; box-shadow:0 -4px 15px rgba(0,0,0,0.1); color:#004080; }
-.collapse-section { margin-bottom:20px; }
-.collapse-header { background:#a3c4f3; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
-.collapse-header:hover { background:#7fa6db; }
-.collapse-body { display:none; background:#dbe9f7; padding:15px; border-radius:8px; }
+/* Contact & Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #d0e7f9;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    color: #004080;
+}
+.contact input, .contact textarea { margin-bottom: 15px; }
 
-@media(max-width:768px){ nav a{display:block;margin:10px 0;} }
+/* Collapse FAQ / Legal */
+.collapse-header {
+    background: #a3c4f3;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+.collapse-header:hover { background: #7fa6db; }
+.collapse-body { display: none; padding: 15px; border-radius: 8px; background: #dbe9f7; }
+
+@media(max-width:768px){ nav { flex-direction: column; gap:10px;} }
 </style>
 
 <script>
@@ -119,6 +188,7 @@ function calculateSIP(){
         n=12, months=y*n, monthlyRate=r/100/n,
         fv=m*((Math.pow(1+monthlyRate,months)-1)/monthlyRate)*(1+monthlyRate);
     document.getElementById('sip-result').innerText="Projected Corpus: ₹"+fv.toFixed(2);
+    document.querySelector('#sip .share-btn').style.opacity = 1;
 }
 
 function calculateLumpsum(){
@@ -128,6 +198,7 @@ function calculateLumpsum(){
         f=parseInt(document.getElementById('ls-freq').value)||1,
         fv=p*Math.pow(1+(r/100)/f,f*y);
     document.getElementById('ls-result').innerText="Future Value: ₹"+fv.toFixed(2);
+    document.querySelector('#lumpsum .share-btn').style.opacity = 1;
 }
 
 function calculateSWP(){
@@ -137,41 +208,20 @@ function calculateSWP(){
         months=y*12, monthlyRate=r/100/12,
         w=(c*monthlyRate)/(1-Math.pow(1+monthlyRate,-months));
     document.getElementById('swp-result').innerText="Monthly Withdrawal: ₹"+w.toFixed(2);
+    document.querySelector('#swp .share-btn').style.opacity = 1;
 }
 
-function toggleFAQ(i){let a=document.getElementById('faq-answer-'+i);a.style.display=a.style.display==='block'?'none':'block';}
-function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i);b.style.display=b.style.display==='block'?'none':'block';}
-
-// Share functions
-function shareTwitter(id){
-    const text=document.getElementById(id).innerText;
-    const url=encodeURIComponent(window.location.href);
-    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,"_blank");
-}
-function shareWhatsApp(id){
-    const text=document.getElementById(id).innerText;
-    const url=encodeURIComponent(window.location.href);
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text+' '+url)}`,"_blank");
-}
-function shareFacebook(id){
-    const text=document.getElementById(id).innerText;
-    const url=encodeURIComponent(window.location.href);
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(text)}`,"_blank");
-}
-
-// Export PDF
-function exportPDF(id){
-    const element = document.getElementById(id);
-    html2pdf().set({margin:0.5, filename: 'calculator_result.pdf', html2canvas:{scale:2}}).from(element).save();
-}
+function shareTwitter(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,"_blank");}
+function shareWhatsApp(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text+' '+url)}`,"_blank");}
+function shareFacebook(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(text)}`,"_blank");}
+function exportPDF(id){html2pdf().set({margin:0.5, filename:'calculator_result.pdf', html2canvas:{scale:2}}).from(document.getElementById(id)).save();}
+function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i); b.style.display=b.style.display==='block'?'none':'block';}
 </script>
 
-</head>
 <body>
-
 <header>
 <h1>FinClarity HQ</h1>
-<p>Premium Financial Calculators for Smart Investing</p>
+<p>Elite Financial Calculators for Smart Investing</p>
 </header>
 
 <nav>
@@ -182,7 +232,7 @@ function exportPDF(id){
 <a href="#contact">Contact</a>
 </nav>
 
-<section id="sip" class="calculator">
+<section id="sip">
 <h2>SIP Calculator</h2>
 <input type="number" id="sip-monthly" placeholder="Monthly Investment (₹)">
 <input type="number" id="sip-rate" placeholder="Expected Annual Return (%)">
@@ -195,10 +245,46 @@ function exportPDF(id){
 <button class="facebook" onclick="shareFacebook('sip-result')"><i class="fab fa-facebook-f"></i></button>
 <button class="pdf" onclick="exportPDF('sip-result')"><i class="fas fa-file-pdf"></i></button>
 </div>
-<p>SIPs allow you to invest fixed amounts regularly...</p>
+<p>SIPs allow you to invest fixed amounts regularly to build a corpus over time...</p>
 </section>
 
-<!-- Lumpsum and SWP sections remain identical with small icon buttons -->
+<section id="lumpsum">
+<h2>Lumpsum Calculator</h2>
+<input type="number" id="ls-principal" placeholder="Principal Amount (₹)">
+<input type="number" id="ls-rate" placeholder="Annual Rate of Return (%)">
+<input type="number" id="ls-years" placeholder="Investment Duration (Years)">
+<select id="ls-freq">
+<option value="1">Annually</option>
+<option value="2">Half-Yearly</option>
+<option value="4">Quarterly</option>
+<option value="12">Monthly</option>
+</select>
+<button onclick="calculateLumpsum()">Calculate</button>
+<div class="result" id="ls-result">Future Value: ₹0.00</div>
+<div class="share-btn">
+<button class="twitter" onclick="shareTwitter('ls-result')"><i class="fab fa-twitter"></i></button>
+<button class="whatsapp" onclick="shareWhatsApp('ls-result')"><i class="fab fa-whatsapp"></i></button>
+<button class="facebook" onclick="shareFacebook('ls-result')"><i class="fab fa-facebook-f"></i></button>
+<button class="pdf" onclick="exportPDF('ls-result')"><i class="fas fa-file-pdf"></i></button>
+</div>
+<p>Lumpsum investments involve investing a single amount upfront and letting it grow...</p>
+</section>
+
+<section id="swp">
+<h2>SWP Calculator</h2>
+<input type="number" id="swp-corpus" placeholder="Total Investment Corpus (₹)">
+<input type="number" id="swp-years" placeholder="Withdrawal Period (Years)">
+<input type="number" id="swp-rate" placeholder="Expected Annual Return (%)">
+<button onclick="calculateSWP()">Calculate</button>
+<div class="result" id="swp-result">Monthly Withdrawal: ₹0.00</div>
+<div class="share-btn">
+<button class="twitter" onclick="shareTwitter('swp-result')"><i class="fab fa-twitter"></i></button>
+<button class="whatsapp" onclick="shareWhatsApp('swp-result')"><i class="fab fa-whatsapp"></i></button>
+<button class="facebook" onclick="shareFacebook('swp-result')"><i class="fab fa-facebook-f"></i></button>
+<button class="pdf" onclick="exportPDF('swp-result')"><i class="fas fa-file-pdf"></i></button>
+</div>
+<p>SWPs allow you to withdraw a fixed amount regularly while keeping the remaining corpus invested...</p>
+</section>
 
 <section id="contact" class="contact">
 <h2>Contact Us</h2>
