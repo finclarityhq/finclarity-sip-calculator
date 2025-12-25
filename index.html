@@ -3,231 +3,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinClarity HQ - Financial Tools</title>
-<meta name="description" content="Advanced financial calculators for smart investing including Lumpsum Investment, SWP, and Retirement Planning.">
+<title>FinClarity HQ - SIP, Lumpsum & SWP Calculators for Smart Investing</title>
+<meta name="description" content="FinClarity HQ offers premium financial calculators including SIP, Lumpsum Investment, and SWP calculators. Plan your investments wisely and grow your wealth.">
+<meta name="keywords" content="SIP Calculator, Lumpsum Calculator, SWP Calculator, Investment Planning, Financial Tools, Wealth Management, FinClarity HQ">
+<meta name="author" content="FinClarity HQ">
 <meta name="google-site-verification" content="L2U5gGeB7xAYiaeujZY90F6faqQhrVcditJi6GMVa48" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FinClarity HQ",
+  "url": "https://finclarityhq.github.io/fimclarityhq/",
+  "logo": "https://finclarityhq.github.io/fimclarityhq/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "finclarityhqofficial@gmail.com",
+    "contactType": "customer support"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is SIP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SIP stands for Systematic Investment Plan. It allows you to invest a fixed amount regularly in mutual funds. SIP reduces market timing risk and leverages compounding for wealth creation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Lumpsum Investment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Lumpsum Investment is a one-time investment of a significant sum. It is ideal for immediate wealth accumulation and can be combined with SIPs for risk mitigation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is SWP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Systematic Withdrawal Plan (SWP) allows periodic withdrawals from your investment corpus while keeping the remaining invested for growth. Ideal for retirees seeking steady income."
+      }
+    }
+  ]
+}
+</script>
 <style>
-    /* General styles */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0; padding: 0;
-        background: linear-gradient(145deg, #0B1D3A, #132B56);
-        color: #fff;
-    }
-    h1, h2, h3 {
-        color: #FFD700;
-        text-align: center;
-    }
-    header {
-        padding: 40px 20px;
-        text-align: center;
-        background: #0B1D3A;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-    nav {
-        text-align: center;
-        background: #132B56;
-        padding: 15px 0;
-    }
-    nav a {
-        margin: 0 15px;
-        color: #FFD700;
-        text-decoration: none;
-        font-weight: bold;
-    }
-    nav a:hover {
-        text-decoration: underline;
-    }
-    section {
-        padding: 50px 20px;
-        max-width: 1000px;
-        margin: auto;
-    }
-    .calculator, .faq, .contact, .legal {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 25px;
-        border-radius: 15px;
-        margin-bottom: 40px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    }
-    input, select, textarea, button {
-        padding: 10px; margin: 10px 0; border-radius: 5px;
-        border: none;
-        width: 100%;
-        font-size: 16px;
-    }
-    button {
-        background: #FFD700; color: #0B1D3A; cursor: pointer; font-weight: bold;
-    }
-    button:hover {
-        background: #FFC200;
-    }
-    .result {
-        margin-top: 10px;
-        font-weight: bold;
-        text-align: center;
-    }
-    .faq-item {
-        margin-bottom: 15px;
-        cursor: pointer;
-    }
-    .faq-answer {
-        display: none;
-        padding: 10px;
-        background: rgba(0,0,0,0.2);
-        border-radius: 5px;
-    }
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #0B1D3A;
-        box-shadow: 0 -4px 10px rgba(0,0,0,0.5);
-    }
-    .collapse-section {
-        margin-bottom: 20px;
-    }
-    .collapse-header {
-        background: #132B56;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-    }
-    .collapse-body {
-        display: none;
-        background: rgba(255,255,255,0.05);
-        padding: 15px;
-        border-radius: 5px;
-    }
+body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
+h1,h2,h3 { color:#006d77; text-align:center; margin-bottom:20px; }
+header { padding:50px 20px; text-align:center; background:linear-gradient(135deg,#009688,#00bfa5); color:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.2); border-bottom-left-radius:20px; border-bottom-right-radius:20px; }
+nav { text-align:center; background:#e0f7fa; padding:15px 0; }
+nav a { margin:0 15px; color:#006d77; text-decoration:none; font-weight:bold; transition:0.3s; }
+nav a:hover { color:#00bfa5; text-decoration:underline; }
+section { padding:50px 20px; max-width:1000px; margin:auto; }
+.calculator,.faq,.contact,.legal { background:#fff; padding:30px; border-radius:20px; margin-bottom:50px; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+.calculator:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+input,select,textarea,button { padding:12px; margin:10px 0; border-radius:8px; border:1px solid #b2dfdb; width:100%; font-size:16px; }
+button { background:linear-gradient(135deg,#009688,#00bfa5); color:#fff; cursor:pointer; font-weight:bold; transition:0.3s; }
+button:hover { background:linear-gradient(135deg,#00796b,#00897b); }
+.result { margin-top:15px; font-weight:bold; text-align:center; }
+.faq-item { margin-bottom:15px; cursor:pointer; }
+.faq-answer { display:none; padding:10px; background:#e0f2f1; border-radius:8px; }
+footer { text-align:center; padding:25px; background:#e0f7fa; box-shadow:0 -4px 15px rgba(0,0,0,0.1); color:#006d77; }
+.collapse-section { margin-bottom:20px; }
+.collapse-header { background:#b2dfdb; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; transition:0.3s; }
+.collapse-header:hover { background:#80cbc4; }
+.collapse-body { display:none; background:#e0f2f1; padding:15px; border-radius:8px; }
+@media(max-width:768px){ nav a{display:block;margin:10px 0;} }
 </style>
 <script>
-    // Calculator functions
-    function calculateLumpsum() {
-        let principal = parseFloat(document.getElementById('ls-principal').value) || 0;
-        let rate = parseFloat(document.getElementById('ls-rate').value) || 0;
-        let years = parseFloat(document.getElementById('ls-years').value) || 0;
-        let freq = parseInt(document.getElementById('ls-freq').value) || 1;
-        let futureValue = principal * Math.pow((1 + (rate/100)/freq), freq*years);
-        document.getElementById('ls-result').innerText = "Future Value: ₹" + futureValue.toFixed(2);
-    }
-
-    function calculateSWP() {
-        let corpus = parseFloat(document.getElementById('swp-corpus').value) || 0;
-        let years = parseFloat(document.getElementById('swp-years').value) || 0;
-        let rate = parseFloat(document.getElementById('swp-rate').value) || 0;
-        let months = years * 12;
-        let monthlyRate = rate/100/12;
-        let withdrawal = (corpus * monthlyRate) / (1 - Math.pow(1+monthlyRate, -months));
-        document.getElementById('swp-result').innerText = "Monthly Withdrawal: ₹" + withdrawal.toFixed(2);
-    }
-
-    // FAQ toggle
-    function toggleFAQ(index) {
-        let answer = document.getElementById('faq-answer-' + index);
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-    }
-
-    // Collapsible sections
-    function toggleCollapse(index) {
-        let body = document.getElementById('collapse-body-' + index);
-        body.style.display = body.style.display === 'block' ? 'none' : 'block';
-    }
+function calculateSIP(){let m=parseFloat(document.getElementById('sip-monthly').value)||0,r=parseFloat(document.getElementById('sip-rate').value)||0,y=parseFloat(document.getElementById('sip-years').value)||0,n=12,months=y*n,monthlyRate=r/100/n,fv=m*((Math.pow(1+monthlyRate,months)-1)/monthlyRate)*(1+monthlyRate);document.getElementById('sip-result').innerText="Projected Corpus: ₹"+fv.toFixed(2);}
+function calculateLumpsum(){let p=parseFloat(document.getElementById('ls-principal').value)||0,r=parseFloat(document.getElementById('ls-rate').value)||0,y=parseFloat(document.getElementById('ls-years').value)||0,f=parseInt(document.getElementById('ls-freq').value)||1,fv=p*Math.pow(1+(r/100)/f,f*y);document.getElementById('ls-result').innerText="Future Value: ₹"+fv.toFixed(2);}
+function calculateSWP(){let c=parseFloat(document.getElementById('swp-corpus').value)||0,y=parseFloat(document.getElementById('swp-years').value)||0,r=parseFloat(document.getElementById('swp-rate').value)||0,months=y*12,monthlyRate=r/100/12,w=(c*monthlyRate)/(1-Math.pow(1+monthlyRate,-months));document.getElementById('swp-result').innerText="Monthly Withdrawal: ₹"+w.toFixed(2);}
+function toggleFAQ(i){let a=document.getElementById('faq-answer-'+i);a.style.display=a.style.display==='block'?'none':'block';}
+function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i);b.style.display=b.style.display==='block'?'none':'block';}
 </script>
 </head>
 <body>
-
-<header>
-    <h1>FinClarity HQ</h1>
-    <p>Advanced Calculators for Smart Investing</p>
-</header>
-
+<header><h1>FinClarity HQ</h1><p>Premium Financial Calculators for Smart Investing</p></header>
 <nav>
-    <a href="#lumpsum">Lumpsum Calculator</a>
-    <a href="#swp">SWP Calculator</a>
-    <a href="#retirement">Retirement Tools</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
+<a href="#sip">SIP Calculator</a><a href="#lumpsum">Lumpsum Calculator</a><a href="#swp">SWP Calculator</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
 </nav>
 
+<section id="sip" class="calculator">
+<h2>SIP Calculator</h2>
+<input type="number" id="sip-monthly" placeholder="Monthly Investment (₹)">
+<input type="number" id="sip-rate" placeholder="Expected Annual Return (%)">
+<input type="number" id="sip-years" placeholder="Investment Duration (Years)">
+<button onclick="calculateSIP()">Calculate</button>
+<div class="result" id="sip-result">Projected Corpus: ₹0.00</div>
+<p>SIPs (Systematic Investment Plans) allow you to invest a fixed amount regularly, taking advantage of rupee-cost averaging and compounding. By contributing monthly, investors smooth out market volatility and build wealth over long-term horizons. Start early, remain consistent, and adjust contributions based on financial goals. SIPs are ideal for disciplined investing, especially for beginners seeking long-term wealth creation. Combining SIPs with diversified funds can mitigate risks and enhance potential returns. Over time, small monthly contributions accumulate into substantial corpus due to compounding, creating financial stability and future security for retirement, education, or other goals.</p>
+</section>
+
 <section id="lumpsum" class="calculator">
-    <h2>Lumpsum Investment Calculator</h2>
-    <input type="number" id="ls-principal" placeholder="Principal Amount (₹)">
-    <input type="number" id="ls-rate" placeholder="Annual Rate of Return (%)">
-    <input type="number" id="ls-years" placeholder="Investment Duration (Years)">
-    <select id="ls-freq">
-        <option value="1">Annually</option>
-        <option value="2">Half-Yearly</option>
-        <option value="4">Quarterly</option>
-        <option value="12">Monthly</option>
-    </select>
-    <button onclick="calculateLumpsum()">Calculate</button>
-    <div class="result" id="ls-result">Future Value: ₹0.00</div>
-    <p>Understand how your investment grows over time with compounding. Regularly reviewing your Lumpsum investments helps maximize returns and aligns with your financial goals. Ensure your portfolio is diversified to balance risk and reward.</p>
+<h2>Lumpsum Investment Calculator</h2>
+<input type="number" id="ls-principal" placeholder="Principal Amount (₹)">
+<input type="number" id="ls-rate" placeholder="Annual Rate of Return (%)">
+<input type="number" id="ls-years" placeholder="Investment Duration (Years)">
+<select id="ls-freq"><option value="1">Annually</option><option value="2">Half-Yearly</option><option value="4">Quarterly</option><option value="12">Monthly</option></select>
+<button onclick="calculateLumpsum()">Calculate</button>
+<div class="result" id="ls-result">Future Value: ₹0.00</div>
+<p>Lumpsum investments involve investing a large amount at once. This approach is suitable when you have a significant sum to invest and want to maximize returns immediately. Compared to SIPs, Lumpsum benefits more during prolonged bull markets but carries timing risks. Proper asset allocation and market analysis can optimize returns. Investors should consider Lumpsum for tax-efficient instruments, retirement contributions, or targeted goals. Combining Lumpsum with SIP strategies can balance risk and growth, offering a flexible approach to wealth accumulation. Monitor performance periodically to ensure alignment with financial goals.</p>
 </section>
 
 <section id="swp" class="calculator">
-    <h2>Systematic Withdrawal Plan (SWP) Calculator</h2>
-    <input type="number" id="swp-corpus" placeholder="Total Investment Corpus (₹)">
-    <input type="number" id="swp-years" placeholder="Withdrawal Period (Years)">
-    <input type="number" id="swp-rate" placeholder="Expected Annual Return (%)">
-    <button onclick="calculateSWP()">Calculate</button>
-    <div class="result" id="swp-result">Monthly Withdrawal: ₹0.00</div>
-    <p>SWP helps you plan consistent withdrawals from your corpus while keeping investments intact for growth. Ideal for retirement or long-term financial stability. Adjust returns and duration to see optimal withdrawal strategies.</p>
-</section>
-
-<section id="retirement" class="calculator">
-    <h2>Retirement Planning Tools</h2>
-    <p>Plan for a financially secure retirement. Input your current age, retirement age, expected monthly savings, and expected returns to calculate your projected retirement corpus.</p>
-    <p>Placeholder for retirement tools content and interactive calculators. This section includes advice, sample tables, and tips for retirement corpus calculation, inflation adjustment, and long-term investment planning. Includes guidance to diversify investments across equity, debt, and safe assets for optimal returns and risk management. Detailed educational content ensures users understand growth assumptions, tax implications, and withdrawal strategies. Placeholder content helps reach the 4000+ words target.</p>
+<h2>Systematic Withdrawal Plan (SWP) Calculator</h2>
+<input type="number" id="swp-corpus" placeholder="Total Investment Corpus (₹)">
+<input type="number" id="swp-years" placeholder="Withdrawal Period (Years)">
+<input type="number" id="swp-rate" placeholder="Expected Annual Return (%)">
+<button onclick="calculateSWP()">Calculate</button>
+<div class="result" id="swp-result">Monthly Withdrawal: ₹0.00</div>
+<p>SWPs allow investors to withdraw a fixed amount regularly from their investment corpus. Ideal for retirees seeking steady income, SWPs maintain the principal investment while providing liquidity. By choosing appropriate withdrawal rates, investors can sustain long-term growth while funding living expenses. SWPs also offer tax planning benefits and help in structured financial planning. Consistent monitoring ensures withdrawals do not deplete the corpus prematurely. Using SWPs alongside diversified investments helps maintain income flow while managing risk and capital growth effectively.</p>
 </section>
 
 <section id="faq" class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item" onclick="toggleFAQ(1)">
-        <strong>What is a Lumpsum Investment?</strong>
-        <div class="faq-answer" id="faq-answer-1">A Lumpsum Investment is a one-time investment made at a single point in time. It is ideal for investors who want to invest a large amount for a long-term goal and benefit from compounding over the years.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFAQ(2)">
-        <strong>What is a Systematic Withdrawal Plan (SWP)?</strong>
-        <div class="faq-answer" id="faq-answer-2">SWP allows investors to withdraw a fixed amount from their mutual fund investments at regular intervals. It helps in generating a steady cash flow without selling the entire investment.</div>
-    </div>
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item" onclick="toggleFAQ(1)">
+<strong>What is SIP?</strong>
+<div class="faq-answer" id="faq-answer-1">A Systematic Investment Plan (SIP) is a method to invest fixed amounts regularly in mutual funds. SIPs reduce market timing risk and leverage compounding for wealth creation. They are ideal for disciplined long-term investment strategies.</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(2)">
+<strong>What is Lumpsum Investment?</strong>
+<div class="faq-answer" id="faq-answer-2">Lumpsum Investment involves investing a significant amount at once, ideal for immediate wealth accumulation. It works best during favorable market conditions and can be combined with SIPs for risk mitigation.</div>
+</div>
+<div class="faq-item" onclick="toggleFAQ(3)">
+<strong>What is SWP?</strong>
+<div class="faq-answer" id="faq-answer-3">A Systematic Withdrawal Plan (SWP) allows periodic withdrawals from your investment corpus while maintaining the remaining invested to grow over time. Perfect for steady income during retirement.</div>
+</div>
 </section>
 
 <section class="legal">
-    <h2>Legal & Privacy</h2>
-    <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleCollapse(1)">Privacy Policy</div>
-        <div class="collapse-body" id="collapse-body-1">
-            <p>Your privacy is important. We do not share your data. All information collected via calculators is local to your browser.</p>
-        </div>
-    </div>
-    <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleCollapse(2)">Disclaimer</div>
-        <div class="collapse-body" id="collapse-body-2">
-            <p>All calculations are for educational purposes. FinClarity HQ does not provide financial advice. Always consult a certified financial advisor before making investment decisions.</p>
-        </div>
-    </div>
-    <div class="collapse-section">
-        <div class="collapse-header" onclick="toggleCollapse(3)">Terms & Conditions</div>
-        <div class="collapse-body" id="collapse-body-3">
-            <p>By using these tools, you agree to our terms. We are not liable for investment decisions based on this calculator.</p>
-        </div>
-    </div>
+<h2>Legal & Privacy</h2>
+<div class="collapse-section">
+<div class="collapse-header" onclick="toggleCollapse(1)">Privacy Policy</div>
+<div class="collapse-body" id="collapse-body-1"><p>Your privacy is important. We do not share your data. All information collected via calculators remains local to your browser.</p></div>
+</div>
+<div class="collapse-section">
+<div class="collapse-header" onclick="toggleCollapse(2)">Disclaimer</div>
+<div class="collapse-body" id="collapse-body-2"><p>All calculations are for educational purposes. FinClarity HQ does not provide financial advice. Consult a certified financial advisor before making investment decisions.</p></div>
+</div>
+<div class="collapse-section">
+<div class="collapse-header" onclick="toggleCollapse(3)">Terms & Conditions</div>
+<div class="collapse-body" id="collapse-body-3"><p>By using these tools, you agree to our terms. We are not liable for investment decisions based on these calculators.</p></div>
+</div>
 </section>
 
 <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Reach us at: <strong>finclarityhqofficial@gmail.com</strong></p>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
-    <textarea placeholder="Your Message"></textarea>
-    <button>Send Message</button>
+<h2>Contact Us</h2>
+<p>Reach us at: <strong>finclarityhqofficial@gmail.com</strong></p>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea placeholder="Your Message"></textarea>
+<button>Send Message</button>
 </section>
 
 <footer>
-    <p>© 2025 FinClarity HQ. All Rights Reserved.</p>
-    <p>Follow us on social media: [Icons Placeholder]</p>
+<p>© 2025 FinClarity HQ. All Rights Reserved.</p>
+<p>Follow us on social media: [Icons Placeholder]</p>
 </footer>
-
 </body>
 </html>
