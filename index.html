@@ -3,288 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FinClarity HQ - Elite Financial Calculators</title>
-<meta name="description" content="FinClarity HQ offers premium SIP, Lumpsum, and SWP calculators to plan your wealth intelligently. Smart investing starts here.">
-<meta name="keywords" content="SIP Calculator, Lumpsum Calculator, SWP Calculator, Investment Planning, Financial Tools, Wealth Management, FinClarity HQ">
+
+<title>FinClarity HQ – Elite Financial Calculators & AI Guide</title>
+
+<meta name="description" content="FinClarity HQ offers elite SIP, Lumpsum & SWP calculators with an AI-powered Indian finance education assistant.">
+<meta name="keywords" content="SIP Calculator, Lumpsum Calculator, SWP Calculator, Indian Finance, Mutual Funds, FinClarity">
 <meta name="author" content="FinClarity HQ">
-<meta name="google-site-verification" content="L2U5gGeB7xAYiaeujZY90F6faqQhrVcditJi6GMVa48" />
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-
-<!-- html2pdf -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* Base */
-body {margin:0; padding:0; font-family:'Poppins',sans-serif; background:#f0f4f8; color:#004080;}
-header {
-    background:linear-gradient(135deg,#28a745,#81c784); /* Green gradient */
-    color:#fff; 
-    padding:70px 20px 50px; 
-    text-align:center; 
-    border-bottom-left-radius:25px; 
-    border-bottom-right-radius:25px; 
-    box-shadow:0 6px 25px rgba(0,0,0,0.25);
-    font-family:'Roboto Slab', serif; /* Header font */
-}
-header h1 {font-size:3.2rem; font-weight:900; margin:0; background:linear-gradient(45deg,#ffffff,#d4edda); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-shadow:2px 2px 4px rgba(0,0,0,0.25);}
-header p {font-size:1.3rem; font-weight:700; margin-top:10px;}
-
-/* Navigation */
-nav {display:flex; justify-content:center; gap:20px; background:#d0f0d6; padding:15px 0; font-weight:600; flex-wrap:wrap;}
-nav a {color:#155724; text-decoration:none; transition:0.3s;}
-nav a:hover {color:#28a745;}
-
-/* Sections */
-section {max-width:1000px; margin:40px auto; padding:25px; background:#fff; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s;}
-section:hover {transform:translateY(-3px); box-shadow:0 15px 30px rgba(0,0,0,0.12);}
-h2 {text-align:center; font-size:2rem; font-weight:700; margin-bottom:20px;}
-input, select, textarea, button {width:100%; padding:12px; margin:10px 0; border-radius:10px; border:1px solid #b2dfdb; font-size:16px;}
-button {background:linear-gradient(135deg,#28a745,#218838); color:#fff; cursor:pointer; font-weight:700; transition:all 0.3s ease;}
-button:hover {transform:scale(1.03); background:linear-gradient(135deg,#1e7e34,#19692c);}
-.result {margin-top:20px; font-size:1.8rem; font-weight:700; text-align:center; background:rgba(40,167,69,0.1); padding:20px; border-radius:15px; color:#155724; box-shadow:0 6px 20px rgba(0,0,0,0.08);}
-.share-btn {margin-top:15px; display:flex; justify-content:center; gap:8px; opacity:0; transition:opacity 0.5s ease; flex-wrap:wrap;}
-.share-btn button {display:flex; align-items:center; justify-content:center; padding:6px 10px; border-radius:6px; font-size:0.85rem; border:none; cursor:pointer; transition:all 0.3s;}
-.share-btn button i {font-size:0.9rem;}
-.share-btn .twitter {background:#1DA1F2; color:#fff;}
-.share-btn .whatsapp {background:#25D366; color:#fff;}
-.share-btn .facebook {background:#4267B2; color:#fff;}
-.share-btn .pdf {background:#155724; color:#fff;}
-.share-btn button:hover {transform:scale(1.1);}
-.contact input, .contact textarea {margin-bottom:15px;}
-footer {text-align:center; padding:25px; background:#d0f0d6; box-shadow:0 -4px 15px rgba(0,0,0,0.1); color:#155724;}
-.collapse-header {background:#a8d5a2; padding:12px; border-radius:8px; cursor:pointer; font-weight:600; transition:background 0.3s; margin-bottom:5px;}
-.collapse-header:hover {background:#81c784;}
-.collapse-body {display:none; padding:15px; border-radius:8px; background:#d4edda;}
-
-/* Mobile responsive */
-@media(max-width:768px){
-    header h1 {font-size:2.4rem;}
-    header p {font-size:1.1rem;}
-    section {margin:25px 15px; padding:20px;}
-    input, select, textarea, button {font-size:15px; padding:10px; margin-left:15px; margin-right:15px; width:calc(100% - 30px);}
-    .result {font-size:1.5rem; padding:15px;}
-    nav {flex-direction:column; gap:10px;}
+/* ================= GLOBAL ================= */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#e6fffa,#f0fdfa);
+  color:#083344;
 }
 
-/* Small mobile */
-@media(max-width:480px){
-    header h1 {font-size:2rem;}
-    header p {font-size:1rem;}
-    section {padding:15px;}
-    input, select, textarea, button {font-size:14px; padding:8px; margin-left:15px; margin-right:15px; width:calc(100% - 30px);}
-    .result {font-size:1.3rem; padding:12px;}
-    .share-btn button {padding:5px; font-size:0.8rem;}
-}
-    .site-nav{
-  background:#022c22;
-  padding:10px;
+/* ================= NAV ================= */
+.top-nav{
+  background:linear-gradient(135deg,#0f766e,#14b8a6);
+  padding:14px;
   text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.2);
 }
 
-.site-nav a{
-  color:#d1fae5;
-  margin:0 12px;
+.top-nav a{
+  color:#ecfeff;
+  margin:0 14px;
   font-weight:600;
   text-decoration:none;
 }
 
-.site-nav a:hover{
-  text-decoration:underline;
-}
+.top-nav a:hover{ text-decoration:underline }
 
-.tool-nav{
-  margin:20px auto;
-  max-width:1100px;
+/* ================= HEADER ================= */
+header{
   text-align:center;
+  padding:70px 20px;
+  background:linear-gradient(135deg,#14b8a6,#2dd4bf);
+  color:white;
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
 }
 
-.tool-nav a{
-  margin:0 10px;
-  color:#0f766e;
-  font-weight:500;
+header h1{font-size:3rem;margin:0}
+header p{font-size:1.2rem;font-weight:600}
+
+/* ================= SECTIONS ================= */
+section{
+  max-width:1000px;
+  margin:40px auto;
+  background:white;
+  padding:30px;
+  border-radius:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
+h2{text-align:center;color:#0f766e}
+
+input,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #99f6e4;
+  font-size:16px;
+}
+
+button{
+  background:#14b8a6;
+  color:white;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:15px;
+  padding:15px;
+  border-radius:14px;
+  background:#ccfbf1;
+  text-align:center;
+  font-size:1.4rem;
+  font-weight:700;
+}
+
+/* ================= NEWS ================= */
+.news-card{
+  background:#f0fdfa;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:16px;
+}
+
+.news-card h4{margin:0;color:#115e59}
+.news-source{font-size:12px;color:#475569}
+
+.ask-ai-btn{
+  margin-top:10px;
+  padding:6px 12px;
+  font-size:12px;
+  background:#0f766e;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.mood-neutral{color:#0f766e}
+.mood-cautious{color:#92400e}
+.mood-volatile{color:#991b1b}
+
+/* ================= AI CHAT ================= */
+#chat-bubble{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0f766e,#14b8a6);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  cursor:pointer;
+  z-index:10000;
+}
+
+#finclarity-chat{
+  display:none;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:340px;
+  height:520px;
+  background:white;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.3);
+  overflow:hidden;
+  z-index:10000;
+}
+
+#chat-header{
+  background:linear-gradient(135deg,#0f766e,#14b8a6);
+  color:white;
+  padding:12px;
+  font-weight:700;
+}
+
+#chat-body{
+  padding:12px;
+  height:300px;
+  overflow-y:auto;
+  background:#f8fafc;
+  font-size:14px;
+}
+
+.chat-q{
+  background:#cffafe;
+  padding:8px;
+  border-radius:8px;
+  margin-bottom:6px;
+  font-weight:600;
+}
+
+.chat-a{
+  background:#dcfce7;
+  padding:8px;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+
+#chat-input{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-top:1px solid #e5e7eb;
+}
+
+/* Mobile full screen */
+@media(max-width:768px){
+  #finclarity-chat{
+    width:100%;
+    height:100%;
+    bottom:0;
+    right:0;
+    border-radius:0;
+  }
+  #chat-body{height:calc(100% - 180px)}
+}
 </style>
-
-<script>
-function calculateSIP(){
-    let m=parseFloat(document.getElementById('sip-monthly').value)||0,
-        r=parseFloat(document.getElementById('sip-rate').value)||0,
-        y=parseFloat(document.getElementById('sip-years').value)||0,
-        n=12, months=y*n, monthlyRate=r/100/n,
-        fv=m*((Math.pow(1+monthlyRate,months)-1)/monthlyRate)*(1+monthlyRate);
-    document.getElementById('sip-result').innerText="Projected Corpus: ₹"+fv.toFixed(2);
-    document.querySelector('#sip .share-btn').style.opacity=1;
-}
-
-function calculateLumpsum(){
-    let p=parseFloat(document.getElementById('ls-principal').value)||0,
-        r=parseFloat(document.getElementById('ls-rate').value)||0,
-        y=parseFloat(document.getElementById('ls-years').value)||0,
-        f=parseInt(document.getElementById('ls-freq').value)||1,
-        fv=p*Math.pow(1+(r/100)/f,f*y);
-    document.getElementById('ls-result').innerText="Future Value: ₹"+fv.toFixed(2);
-    document.querySelector('#lumpsum .share-btn').style.opacity=1;
-}
-
-function calculateSWP(){
-    let c=parseFloat(document.getElementById('swp-corpus').value)||0,
-        y=parseFloat(document.getElementById('swp-years').value)||0,
-        r=parseFloat(document.getElementById('swp-rate').value)||0,
-        months=y*12, monthlyRate=r/100/12,
-        w=(c*monthlyRate)/(1-Math.pow(1+monthlyRate,-months));
-    document.getElementById('swp-result').innerText="Monthly Withdrawal: ₹"+w.toFixed(2);
-    document.querySelector('#swp .share-btn').style.opacity=1;
-}
-
-function shareTwitter(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,"_blank");}
-function shareWhatsApp(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text+' '+url)}`,"_blank");}
-function shareFacebook(id){const text=document.getElementById(id).innerText; const url=encodeURIComponent(window.location.href); window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(text)}`,"_blank");}
-function exportPDF(id){html2pdf().set({margin:0.5, filename:'calculator_result.pdf', html2canvas:{scale:2}}).from(document.getElementById(id)).save();}
-function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i); b.style.display=b.style.display==='block'?'none':'block';}
-</script>
+</head>
 
 <body>
-    <nav>
+
+<!-- NAV -->
+<div class="top-nav">
   <a href="pages/what-is-sip.html">What is SIP?</a>
   <a href="pages/choose-sip-mutual-fund.html">Choose SIP Fund</a>
   <a href="pages/sip-vs-lumpsum.html">SIP vs Lumpsum</a>
-  <a href="pages/sip-taxation-india.html">SIP Taxation</a>
-</nav>
+  <a href="pages/sip-taxation-india.html">Taxation</a>
+</div>
 
 <header>
-<h1>FinClarity HQ</h1>
-<p>Elite Financial Calculators for Smart Investing</p>
+  <h1>FinClarity HQ</h1>
+  <p>Elite Financial Calculators & Indian Finance AI</p>
 </header>
 
-<nav>
-<a href="#sip">SIP Calculator</a>
-<a href="#lumpsum">Lumpsum Calculator</a>
-<a href="#swp">SWP Calculator</a>
-<a href="#faq">FAQ</a>
-<a href="#legal">Legal</a>
-<a href="#contact">Contact</a>
-</nav>
-    <section id="finclarity-ai" style="max-width:800px;margin:40px auto;padding:20px;background:#f0fdfa;border-radius:14px;">
-  <h2 style="text-align:center;color:#065f46;">FinClarity AI Assistant</h2>
-  <p style="text-align:center;color:#334155;">
-    Ask simple questions about SIP, Lumpsum, inflation & long-term investing.
-  </p>
-
-  <div id="chatBox" style="height:280px;overflow-y:auto;background:#ffffff;padding:15px;border-radius:10px;border:1px solid #e5e7eb;">
-    <div><strong>FinClarity AI:</strong> Hello! I explain personal finance concepts in simple Indian context. Ask me anything.</div>
-  </div>
-
-  <input id="userInput" type="text" placeholder="Type your question here..."
-    style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #cbd5e1;" />
-
-  <button onclick="finclarityAI()"
-    style="margin-top:10px;width:100%;padding:12px;background:#10b981;color:white;border:none;border-radius:8px;font-size:16px;">
-    Ask FinClarity AI
-  </button>
-</section>
-
-<!-- SIP Calculator -->
-<section id="sip">
+<!-- SIP -->
+<section>
 <h2>SIP Calculator</h2>
-<input type="number" id="sip-monthly" placeholder="Monthly Investment (₹)">
-<input type="number" id="sip-rate" placeholder="Expected Annual Return (%)">
-<input type="number" id="sip-years" placeholder="Investment Duration (Years)">
+<input id="sip-monthly" placeholder="Monthly Investment (₹)">
+<input id="sip-rate" placeholder="Expected Return (%)">
+<input id="sip-years" placeholder="Years">
 <button onclick="calculateSIP()">Calculate</button>
-<div class="result" id="sip-result">Projected Corpus: ₹0.00</div>
-<div class="share-btn">
-<button class="twitter" onclick="shareTwitter('sip-result')"><i class="fab fa-twitter"></i></button>
-<button class="whatsapp" onclick="shareWhatsApp('sip-result')"><i class="fab fa-whatsapp"></i></button>
-<button class="facebook" onclick="shareFacebook('sip-result')"><i class="fab fa-facebook-f"></i></button>
-<button class="pdf" onclick="exportPDF('sip-result')"><i class="fas fa-file-pdf"></i></button>
-</div>
-<p>SIPs allow you to invest fixed amounts regularly to build a corpus over time...</p>
+<div class="result" id="sip-result">₹0</div>
 </section>
 
-<!-- Lumpsum Calculator -->
-<section id="lumpsum">
+<!-- LUMPSUM -->
+<section>
 <h2>Lumpsum Calculator</h2>
-<input type="number" id="ls-principal" placeholder="Principal Amount (₹)">
-<input type="number" id="ls-rate" placeholder="Annual Rate of Return (%)">
-<input type="number" id="ls-years" placeholder="Investment Duration (Years)">
-<select id="ls-freq">
-<option value="1">Annually</option>
-<option value="2">Half-Yearly</option>
-<option value="4">Quarterly</option>
-<option value="12">Monthly</option>
-</select>
+<input id="ls-principal" placeholder="Principal (₹)">
+<input id="ls-rate" placeholder="Return (%)">
+<input id="ls-years" placeholder="Years">
 <button onclick="calculateLumpsum()">Calculate</button>
-<div class="result" id="ls-result">Future Value: ₹0.00</div>
-<div class="share-btn">
-<button class="twitter" onclick="shareTwitter('ls-result')"><i class="fab fa-twitter"></i></button>
-<button class="whatsapp" onclick="shareWhatsApp('ls-result')"><i class="fab fa-whatsapp"></i></button>
-<button class="facebook" onclick="shareFacebook('ls-result')"><i class="fab fa-facebook-f"></i></button>
-<button class="pdf" onclick="exportPDF('ls-result')"><i class="fas fa-file-pdf"></i></button>
-</div>
-<p>Lumpsum investments involve investing a single amount upfront and letting it grow...</p>
+<div class="result" id="ls-result">₹0</div>
 </section>
 
-<!-- SWP Calculator -->
-<section id="swp">
+<!-- SWP -->
+<section>
 <h2>SWP Calculator</h2>
-<input type="number" id="swp-corpus" placeholder="Total Investment Corpus (₹)">
-<input type="number" id="swp-years" placeholder="Withdrawal Period (Years)">
-<input type="number" id="swp-rate" placeholder="Expected Annual Return (%)">
+<input id="swp-corpus" placeholder="Corpus (₹)">
+<input id="swp-rate" placeholder="Return (%)">
+<input id="swp-years" placeholder="Years">
 <button onclick="calculateSWP()">Calculate</button>
-<div class="result" id="swp-result">Monthly Withdrawal: ₹0.00</div>
-<div class="share-btn">
-<button class="twitter" onclick="shareTwitter('swp-result')"><i class="fab fa-twitter"></i></button>
-<button class="whatsapp" onclick="shareWhatsApp('swp-result')"><i class="fab fa-whatsapp"></i></button>
-<button class="facebook" onclick="shareFacebook('swp-result')"><i class="fab fa-facebook-f"></i></button>
-<button class="pdf" onclick="exportPDF('swp-result')"><i class="fas fa-file-pdf"></i></button>
-</div>
-<p>SWPs allow you to withdraw a fixed amount regularly while keeping the remaining corpus invested...</p>
+<div class="result" id="swp-result">₹0</div>
 </section>
 
-<!-- FAQ Section -->
-<section id="faq">
-<h2>FAQ</h2>
-<div class="collapse-section">
-<div class="collapse-header" onclick="toggleCollapse(1)">What is a SIP?</div>
-<div class="collapse-body" id="collapse-body-1">A Systematic Investment Plan (SIP) allows you to invest fixed amounts regularly into mutual funds...</div>
-<div class="collapse-header" onclick="toggleCollapse(2)">What is a Lumpsum investment?</div>
-<div class="collapse-body" id="collapse-body-2">A Lumpsum investment is a one-time investment of a certain amount that grows with returns over time...</div>
-<div class="collapse-header" onclick="toggleCollapse(3)">What is SWP?</div>
-<div class="collapse-body" id="collapse-body-3">Systematic Withdrawal Plan (SWP) allows periodic withdrawals from your investment corpus...</div>
-</div>
+<!-- NEWS -->
+<section>
+<h2>Indian Market News (Educational)</h2>
+<div id="market-mood">Market Mood: Loading…</div>
+<div id="news-container">Loading…</div>
 </section>
 
-<!-- Legal / Privacy / Disclaimer -->
-<section id="legal">
-<h2>Legal & Disclaimer</h2>
-<div class="collapse-section">
-<div class="collapse-header" onclick="toggleCollapse(4)">Privacy Policy</div>
-<div class="collapse-body" id="collapse-body-4">We respect your privacy. Any personal data you provide is secure and used only to respond to inquiries.</div>
-<div class="collapse-header" onclick="toggleCollapse(5)">Terms & Conditions</div>
-<div class="collapse-body" id="collapse-body-5">By using this website, you agree to our terms and conditions...</div>
-<div class="collapse-header" onclick="toggleCollapse(6)">Disclaimer</div>
-<div class="collapse-body" id="collapse-body-6">The information provided by FinClarity HQ is for educational purposes only and not financial advice...</div>
-</div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<p>Reach us at: <strong>finclarityhqofficial@gmail.com</strong></p>
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Your Message"></textarea>
-<button>Send Message</button>
-</section>
-
-<footer>
-<p>© 2025 FinClarity HQ. All Rights Reserved.</p>
+<footer style="text-align:center;padding:20px;color:#475569">
+© 2025 FinClarity HQ
 </footer>
+
+<!-- AI CHAT -->
+<div id="chat-bubble">🤖</div>
+<div id="finclarity-chat">
+  <div id="chat-header">
+    FinClarity AI
+    <span style="float:right;cursor:pointer" onclick="toggleChat()">✖</span>
+  </div>
+  <div id="chat-body"></div>
+  <input id="chat-input" placeholder="Ask about Indian finance…">
+</div>
+
+<script>
+/* CALCULATORS */
+function calculateSIP(){
+  const m=+sip-monthly.value||0,r=+sip-rate.value||0,y=+sip-years.value||0;
+  const mr=r/100/12,n=y*12;
+  const fv=m*((Math.pow(1+mr,n)-1)/mr)*(1+mr);
+  sip-result.innerText="₹"+fv.toFixed(2);
+}
+function calculateLumpsum(){
+  const p=+ls-principal.value||0,r=+ls-rate.value||0,y=+ls-years.value||0;
+  ls-result.innerText="₹"+(p*Math.pow(1+r/100,y)).toFixed(2);
+}
+function calculateSWP(){
+  const c=+swp-corpus.value||0,r=+swp-rate.value||0,y=+swp-years.value||0;
+  const mr=r/100/12,n=y*12;
+  swp-result.innerText="₹"+((c*mr)/(1-Math.pow(1+mr,-n))).toFixed(2);
+}
+
+/* AI CHAT */
+const kb={
+  sip:"SIP allows monthly investing and reduces market timing risk.",
+  lumpsum:"Lumpsum is a one-time investment.",
+  swp:"SWP provides periodic income from investments.",
+  tax:"Indian mutual fund taxation depends on asset type and holding period.",
+  sebi:"SEBI regulates Indian capital markets.",
+  inflation:"Inflation reduces purchasing power over time."
+};
+
+const chatBody=document.getElementById("chat-body");
+chat-bubble.onclick=()=>{finclarity-chat.style.display="block";chat-bubble.style.display="none";}
+function toggleChat(){finclarity-chat.style.display="none";chat-bubble.style.display="flex"}
+
+chat-input.addEventListener("keydown",e=>{
+  if(e.key==="Enter"){
+    const q=chat-input.value.trim(); if(!q)return;
+    add("chat-q",q);
+    let a="I explain Indian investments and regulations.";
+    for(let k in kb){if(q.toLowerCase().includes(k))a=kb[k]}
+    add("chat-a",a);
+    chat-input.value="";
+  }
+});
+
+function add(c,t){
+  const d=document.createElement("div");
+  d.className=c; d.innerText=t;
+  chatBody.appendChild(d);
+  chatBody.scrollTop=chatBody.scrollHeight;
+}
+
+/* NEWS */
+const feeds=[
+{src:"Moneycontrol",url:"https://www.moneycontrol.com/rss/marketreports.xml"},
+{src:"Economic Times",url:"https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"}
+];
+const proxy="https://api.allorigins.win/raw?url=";
+
+async function loadNews(){
+  let mood=0; news-container.innerHTML="";
+  for(let f of feeds){
+    const x=await fetch(proxy+encodeURIComponent(f.url)).then(r=>r.text());
+    const xml=new DOMParser().parseFromString(x,"text/xml");
+    [...xml.querySelectorAll("item")].slice(0,3).forEach(i=>{
+      const t=i.querySelector("title").textContent;
+      const d=i.querySelector("description").textContent.replace(/<[^>]+>/g,"").slice(0,150);
+      mood+=/crash|panic|sell/i.test(t)?2:/volatile|uncertain/i.test(t)?1:0;
+      const c=document.createElement("div");
+      c.className="news-card";
+      c.innerHTML=`<h4>${t}</h4><p>${d}</p><div class="news-source">${f.src}</div>
+      <button class="ask-ai-btn" onclick="add('chat-q','Explain: ${t}')">Ask AI</button>`;
+      news-container.appendChild(c);
+    });
+  }
+  market-mood.innerText="Market Mood: "+(mood>4?"Volatile":mood>2?"Cautious":"Neutral");
+}
+loadNews(); setInterval(loadNews,21600000);
+</script>
 
 </body>
 </html>
