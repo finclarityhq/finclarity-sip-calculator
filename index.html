@@ -170,6 +170,24 @@ function toggleCollapse(i){let b=document.getElementById('collapse-body-'+i); b.
 <a href="#legal">Legal</a>
 <a href="#contact">Contact</a>
 </nav>
+    <section id="finclarity-ai" style="max-width:800px;margin:40px auto;padding:20px;background:#f0fdfa;border-radius:14px;">
+  <h2 style="text-align:center;color:#065f46;">FinClarity AI Assistant</h2>
+  <p style="text-align:center;color:#334155;">
+    Ask simple questions about SIP, Lumpsum, inflation & long-term investing.
+  </p>
+
+  <div id="chatBox" style="height:280px;overflow-y:auto;background:#ffffff;padding:15px;border-radius:10px;border:1px solid #e5e7eb;">
+    <div><strong>FinClarity AI:</strong> Hello! I explain personal finance concepts in simple Indian context. Ask me anything.</div>
+  </div>
+
+  <input id="userInput" type="text" placeholder="Type your question here..."
+    style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #cbd5e1;" />
+
+  <button onclick="finclarityAI()"
+    style="margin-top:10px;width:100%;padding:12px;background:#10b981;color:white;border:none;border-radius:8px;font-size:16px;">
+    Ask FinClarity AI
+  </button>
+</section>
 
 <!-- SIP Calculator -->
 <section id="sip">
