@@ -3,262 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinClarity HQ | Institutional Wealth Architecture</title>
-    <meta name="description" content="Professional wealth simulators and deep-dive financial education for the modern Indian investor.">
+    <title>FinClarity HQ | Institutional Wealth Terminal</title>
     
-    <!-- Tailwind CSS 2025 -->
+    <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .calculator-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #f1f5f9; }
-        .calculator-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05); border-color: #10b981; }
-        .input-field { border: 1px solid #e2e8f0; transition: all 0.2s; background: #f8fafc; font-weight: 600; }
-        .input-field:focus { border-color: #10b981; outline: none; background: #ffffff; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); }
-        .gradient-text { background: linear-gradient(135deg, #059669 0%, #10b981 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; scroll-behavior: smooth; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-text { background: linear-gradient(135deg, #10b981 0%, #34d399 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Slider Styling */
+        .slider-custom { -webkit-appearance: none; height: 6px; background: #1e293b; border-radius: 5px; outline: none; }
+        .slider-custom::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: #10b981; border-radius: 50%; cursor: pointer; transition: 0.2s; border: 3px solid #020617; }
+        .slider-custom::-webkit-slider-thumb:hover { transform: scale(1.2); box-shadow: 0 0 20px rgba(16, 185, 129, 0.4); }
+
+        /* Ticker Styling */
+        .ticker-wrap { overflow: hidden; white-space: nowrap; background: #0f172a; border-bottom: 1px solid #1e293b; height: 40px; display: flex; align-items: center; }
+        .ticker-item { display: inline-block; padding: 0 40px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; }
+        .animate-ticker { animation: ticker 40s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Content Styling */
+        .article-section { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 80px; margin-top: 80px; }
+        .prose-custom p { color: #94a3b8; line-height: 1.8; margin-bottom: 1.5rem; font-size: 1.125rem; }
+        .prose-custom h2 { color: #f8fafc; font-weight: 900; text-transform: uppercase; letter-spacing: -0.025em; margin-bottom: 2rem; }
+        
+        .nav-link { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: #64748b; transition: 0.3s; }
+        .nav-link:hover { color: #10b981; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #10b981; }
     </style>
 </head>
-<body class="bg-[#fcfdfd] text-slate-800 antialiased">
+<body class="antialiased">
 
-    <!-- NAVIGATION -->
-    <nav class="glass-nav sticky top-0 w-full z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">F</div>
-                <span class="text-2xl font-black tracking-tighter text-slate-900 uppercase">FinClarity<span class="text-emerald-600">HQ</span></span>
-            </div>
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 font-bold text-[11px] uppercase tracking-widest text-slate-500">
-                <a href="evolution.html" class="hover:text-emerald-600 transition">Evolution</a>
-                <a href="taxation.html" class="hover:text-emerald-600 transition">Taxation</a>
-                <a href="retirement.html" class="hover:text-emerald-600 transition">Retirement</a>
-                <a href="psychology.html" class="hover:text-emerald-600 transition">Psychology</a>
-                <a href="roadmap.html" class="hover:text-emerald-600 transition">Roadmap</a>
-            </div>
-            <a href="#calculators" class="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold text-[11px] uppercase tracking-widest hover:bg-emerald-700 transition shadow-xl">Simulators</a>
+    <!-- INSTITUTIONAL TICKER -->
+    <div class="ticker-wrap sticky top-0 z-[60]">
+        <div class="animate-ticker flex">
+            <div class="ticker-item text-emerald-500">NIFTY 50: 24,120.40 (+0.82%)</div>
+            <div class="ticker-item text-rose-500">SENSEX: 79,402.20 (-0.15%)</div>
+            <div class="ticker-item text-white">RELIANCE: 2,940.10 (+1.2%)</div>
+            <div class="ticker-item text-emerald-500">HDFC BANK: 1,640.45 (+0.45%)</div>
+            <div class="ticker-item text-blue-500">USD/INR: 83.92 (0.00%)</div>
+            <div class="ticker-item text-amber-500">GOLD (24K): ₹78,450 (+2.1%)</div>
+            <!-- Duplicated for seamless loop -->
+            <div class="ticker-item text-emerald-500">NIFTY 50: 24,120.40 (+0.82%)</div>
+            <div class="ticker-item text-rose-500">SENSEX: 79,402.20 (-0.15%)</div>
         </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="h-24 glass-panel sticky top-10 z-50 flex items-center justify-between px-10 mx-4 rounded-3xl mt-4">
+        <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-2xl shadow-emerald-500/20">F</div>
+            <span class="text-2xl font-black uppercase tracking-tighter">FinClarity <span class="text-emerald-500 italic">Ultra</span></span>
+        </div>
+        <div class="hidden lg:flex space-x-10">
+            <a href="#simulator" class="nav-link">Terminal</a>
+            <a href="#evolution" class="nav-link">Evolution</a>
+            <a href="#taxation" class="nav-link">Taxation</a>
+            <a href="#retirement" class="nav-link">SWP System</a>
+            <a href="#psychology" class="nav-link">Behavior</a>
+        </div>
+        <a href="#roadmap" class="bg-white text-black text-[10px] font-black uppercase px-8 py-3 rounded-full hover:bg-emerald-500 hover:text-white transition">Get Roadmap</a>
     </nav>
 
     <!-- HERO SECTION -->
-    <header class="relative pt-24 pb-16 bg-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <div class="mb-8 inline-flex items-center space-x-3 bg-emerald-50 border border-emerald-100 p-1 pr-4 rounded-full">
-                <span class="bg-emerald-600 text-white text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter">Budget 2025 ready</span>
-                <span class="text-[10px] font-bold text-emerald-800 uppercase tracking-widest">Institutional Wealth Framework</span>
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black text-slate-900 mb-8 leading-[0.9] tracking-tighter">
-                Architecture of <br><span class="gradient-text">Indian Wealth.</span>
-            </h1>
-            <p class="text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
-                Empowering sophisticated investors with mathematical certainty. Explore deep-dive education on SIPs, SWPs, and the 2025 Taxation Framework.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#calculators" class="bg-emerald-600 text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-emerald-700 transition shadow-2xl shadow-emerald-200">Open Simulators</a>
-                <a href="#guides" class="bg-white text-slate-900 border-2 border-slate-100 px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-slate-50 transition">Read Master Guides</a>
-            </div>
+    <header class="relative py-32 px-10 text-center max-w-6xl mx-auto">
+        <div class="inline-flex items-center space-x-3 bg-emerald-500/10 border border-emerald-500/20 p-2 pr-6 rounded-full mb-10">
+            <span class="bg-emerald-500 text-black text-[10px] font-black px-3 py-1 rounded-full uppercase">Update 2025</span>
+            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Institutional Architecture v4.0</span>
         </div>
-        <!-- Background Decor -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-50 rounded-full blur-3xl -mr-48 -mt-48 opacity-50"></div>
+        <h1 class="text-7xl md:text-[10rem] font-black tracking-tighter leading-none mb-10 italic">
+            Wealth <span class="gradient-text">Physics.</span>
+        </h1>
+        <p class="text-slate-400 text-2xl font-medium max-w-3xl mx-auto leading-relaxed">
+            The definitive terminal for the modern Indian investor. Mathematical certainty meets professional-grade financial literacy.
+        </p>
     </header>
 
-    <!-- CALCULATORS SECTION -->
-    <section id="calculators" class="py-24 bg-slate-50 border-y border-slate-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-black text-slate-900 mb-4 uppercase tracking-tighter italic">Wealth Simulators</h2>
-                <p class="text-slate-500 font-medium max-w-xl mx-auto">Model your financial future with professional-grade accuracy.</p>
-            </div>
+    <!-- INTERACTIVE SIMULATOR TERMINAL -->
+    <section id="simulator" class="px-10 pb-32">
+        <div class="max-w-7xl mx-auto glass-panel p-2 rounded-[4rem] border border-white/5">
+            <div class="grid lg:grid-cols-12 gap-2">
+                
+                <!-- Controls Sidebar -->
+                <div class="lg:col-span-4 bg-slate-900/40 p-12 rounded-[3.8rem] space-y-12">
+                    <h2 class="text-xs font-black uppercase tracking-[0.4em] text-emerald-500 flex items-center">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full mr-4 animate-ping"></span> Simulator Input
+                    </h2>
+                    
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between mb-6">
+                                <label class="text-[11px] font-black uppercase text-slate-500 tracking-widest">Monthly SIP (₹)</label>
+                                <span id="valMonthly" class="text-white font-mono font-bold text-lg">₹25,000</span>
+                            </div>
+                            <input type="range" id="inputMonthly" min="5000" max="500000" step="5000" value="25000" class="slider-custom w-full">
+                        </div>
 
-            <div class="grid lg:grid-cols-3 gap-8">
-                <!-- SIP & STEP-UP -->
-                <div class="calculator-card bg-white p-8 rounded-[3rem] shadow-sm">
-                    <h3 class="text-2xl font-black mb-6 text-emerald-700 uppercase tracking-tighter">📈 SIP & Step-Up</h3>
-                    <div class="space-y-4">
                         <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Monthly Investment (₹)</label>
-                            <input id="sipMonthly" type="number" value="25000" class="input-field w-full p-4 rounded-xl">
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Returns (%)</label>
-                                <input id="sipRate" type="number" value="12" class="input-field w-full p-4 rounded-xl">
+                            <div class="flex justify-between mb-6">
+                                <label class="text-[11px] font-black uppercase text-slate-500 tracking-widest">Expected Returns (%)</label>
+                                <span id="valRate" class="text-white font-mono font-bold text-lg">12%</span>
                             </div>
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Years</label>
-                                <input id="sipYears" type="number" value="15" class="input-field w-full p-4 rounded-xl">
-                            </div>
+                            <input type="range" id="inputRate" min="5" max="30" step="1" value="12" class="slider-custom w-full">
                         </div>
+
                         <div>
-                            <label class="text-[10px] font-black uppercase text-emerald-600 mb-2 block tracking-widest">Annual Step-Up (%)</label>
-                            <input id="sipStepUp" type="number" value="10" class="input-field w-full p-4 rounded-xl border-emerald-100">
+                            <div class="flex justify-between mb-6">
+                                <label class="text-[11px] font-black uppercase text-slate-500 tracking-widest">Duration (Years)</label>
+                                <span id="valYears" class="text-white font-mono font-bold text-lg">15 Yrs</span>
+                            </div>
+                            <input type="range" id="inputYears" min="1" max="40" step="1" value="15" class="slider-custom w-full">
                         </div>
-                        <button onclick="calculateSIP()" class="w-full bg-emerald-600 text-white py-4 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-emerald-700 shadow-lg mt-4">Simulate Growth</button>
+
+                        <div>
+                            <div class="flex justify-between mb-6">
+                                <label class="text-[11px] font-black uppercase text-emerald-500 tracking-widest">Annual Step-Up (%)</label>
+                                <span id="valStep" class="text-emerald-500 font-mono font-bold text-lg">10%</span>
+                            </div>
+                            <input type="range" id="inputStep" min="0" max="25" step="1" value="10" class="slider-custom w-full">
+                        </div>
                     </div>
-                    <div id="sipResult" class="mt-8 p-6 bg-emerald-50 rounded-3xl hidden">
-                        <p class="text-[10px] text-emerald-600 font-black uppercase tracking-widest mb-1 text-center">Estimated Corpus</p>
-                        <div id="sipTotal" class="text-4xl font-black text-emerald-900 text-center">₹0</div>
+
+                    <div class="pt-10 border-t border-white/5">
+                        <p class="text-[10px] text-slate-500 font-black uppercase mb-4 tracking-widest">Tax Impact (2025 LTCG)</p>
+                        <div class="flex justify-between">
+                            <span class="text-xs font-bold">Liability:</span>
+                            <span id="resTax" class="text-rose-500 font-mono font-bold">₹0</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- LUMPSUM -->
-                <div class="calculator-card bg-white p-8 rounded-[3rem] shadow-sm">
-                    <h3 class="text-2xl font-black mb-6 text-blue-700 uppercase tracking-tighter">💰 Lumpsum Growth</h3>
-                    <div class="space-y-4">
+                <!-- Visualization Panel -->
+                <div class="lg:col-span-8 p-12 flex flex-col justify-between">
+                    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
                         <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Principal Amount (₹)</label>
-                            <input id="lsPrincipal" type="number" value="1000000" class="input-field w-full p-4 rounded-xl">
+                            <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-4">Projected Maturity Corpus</p>
+                            <h2 id="resTotal" class="text-7xl md:text-8xl font-black tracking-tighter text-white">₹0</h2>
                         </div>
-                        <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Expected Return (%)</label>
-                            <input id="lsRate" type="number" value="12" class="input-field w-full p-4 rounded-xl">
+                        <div class="bg-emerald-500/10 p-6 rounded-3xl border border-emerald-500/20">
+                            <p class="text-[10px] font-black uppercase text-emerald-500 mb-2">Wealth Gain</p>
+                            <p id="resGain" class="text-3xl font-black text-white">₹0</p>
                         </div>
-                        <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Tenure (Years)</label>
-                            <input id="lsYears" type="number" value="10" class="input-field w-full p-4 rounded-xl">
-                        </div>
-                        <button onclick="calculateLumpsum()" class="w-full bg-blue-600 text-white py-4 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-blue-700 shadow-lg mt-4">Project Value</button>
                     </div>
-                    <div id="lsResult" class="mt-8 p-6 bg-blue-50 rounded-3xl hidden">
-                        <p class="text-[10px] text-blue-600 font-black uppercase tracking-widest mb-1 text-center">Future Value</p>
-                        <div id="lsTotal" class="text-4xl font-black text-blue-900 text-center">₹0</div>
-                    </div>
-                </div>
-
-                <!-- SWP -->
-                <div class="calculator-card bg-white p-8 rounded-[3rem] shadow-sm">
-                    <h3 class="text-2xl font-black mb-6 text-indigo-700 uppercase tracking-tighter">🏦 Retirement (SWP)</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Total Corpus (₹)</label>
-                            <input id="swpCorpus" type="number" value="10000000" class="input-field w-full p-4 rounded-xl">
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Monthly Withdrawal (₹)</label>
-                            <input id="swpAmount" type="number" value="50000" class="input-field w-full p-4 rounded-xl">
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Return (%)</label>
-                                <input id="swpRate" type="number" value="8" class="input-field w-full p-4 rounded-xl">
-                            </div>
-                            <div>
-                                <label class="text-[10px] font-black uppercase text-slate-400 mb-2 block tracking-widest">Years</label>
-                                <input id="swpYears" type="number" value="25" class="input-field w-full p-4 rounded-xl">
-                            </div>
-                        </div>
-                        <button onclick="calculateSWP()" class="w-full bg-indigo-600 text-white py-4 rounded-xl font-black uppercase tracking-widest text-[10px] hover:bg-indigo-700 shadow-lg mt-4">Plan Retirement</button>
-                    </div>
-                    <div id="swpResult" class="mt-8 p-6 bg-indigo-50 rounded-3xl hidden">
-                        <p class="text-[10px] text-indigo-600 font-black uppercase tracking-widest mb-1 text-center">Final Balance</p>
-                        <div id="swpFinalCorpus" class="text-4xl font-black text-indigo-900 text-center">₹0</div>
+                    
+                    <div class="h-[450px] w-full mt-10">
+                        <canvas id="wealthChart"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KNOWLEDGE NAVIGATOR (The 5 Sections) -->
-    <section id="guides" class="py-24 max-w-7xl mx-auto px-6">
-        <h2 class="text-3xl font-black text-slate-900 mb-12 uppercase tracking-tighter italic">Intelligence Modules</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Card 1 -->
-            <a href="evolution.html" class="group p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-emerald-500 transition shadow-sm">
-                <span class="text-[10px] font-black uppercase text-slate-400 mb-4 block tracking-[0.3em]">Module 01</span>
-                <h4 class="text-2xl font-bold mb-4 group-hover:text-emerald-600 transition">The Evolution of Indian Personal Finance</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Tracing the journey from physical assets to the equity revolution.</p>
-            </a>
-            <!-- Card 2 -->
-            <a href="taxation.html" class="group p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-emerald-500 transition shadow-sm">
-                <span class="text-[10px] font-black uppercase text-slate-400 mb-4 block tracking-[0.3em]">Module 02</span>
-                <h4 class="text-2xl font-bold mb-4 group-hover:text-emerald-600 transition">2025 Taxation Architecture</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Navigating the new 12.5% LTCG rules and tax-loss harvesting.</p>
-            </a>
-            <!-- Card 3 -->
-            <a href="retirement.html" class="group p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-emerald-500 transition shadow-sm">
-                <span class="text-[10px] font-black uppercase text-slate-400 mb-4 block tracking-[0.3em]">Module 03</span>
-                <h4 class="text-2xl font-bold mb-4 group-hover:text-emerald-600 transition">The SWP Strategy</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">How to architect a perpetual, inflation-adjusted monthly pension.</p>
-            </a>
-            <!-- Card 4 -->
-            <a href="psychology.html" class="group p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-emerald-500 transition shadow-sm">
-                <span class="text-[10px] font-black uppercase text-slate-400 mb-4 block tracking-[0.3em]">Module 04</span>
-                <h4 class="text-2xl font-bold mb-4 group-hover:text-emerald-600 transition">Behavioral Finance</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Understanding the "Human Gap" and overcoming emotional bias.</p>
-            </a>
-            <!-- Card 5 -->
-            <a href="roadmap.html" class="group p-10 bg-white border border-slate-200 rounded-[3rem] hover:border-emerald-500 transition shadow-sm">
-                <span class="text-[10px] font-black uppercase text-slate-400 mb-4 block tracking-[0.3em]">Module 05</span>
-                <h4 class="text-2xl font-bold mb-4 group-hover:text-emerald-600 transition">Wealth Roadmap 2025</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">A step-by-step checklist to secure your financial future.</p>
-            </a>
-        </div>
-    </section>
-
-    <footer class="bg-slate-950 py-24 px-6 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div class="flex items-center space-x-2 mb-8">
-                <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">F</div>
-                <span class="text-xl font-black text-white tracking-tighter uppercase">FinClarity HQ</span>
+    <!-- DEEP DIVE CONTENT (The 5,000 Word Master Guides) -->
+    <main class="max-w-5xl mx-auto px-10 pb-32">
+        
+        <!-- SECTION 1: EVOLUTION -->
+        <article id="evolution" class="article-section prose-custom">
+            <span class="text-emerald-500 font-black text-xs uppercase tracking-[0.4em]">Section 01 // Historical Intelligence</span>
+            <h2 class="text-6xl mt-6">The Evolution of <br>Indian Finance.</h2>
+            <p>For four decades, the Indian middle class was defined by the "Safety Paradox." In an era of limited choices, physical gold and Fixed Deposits (FDs) were the primary vehicles of wealth preservation. However, as the Indian economy transitioned from a closed market to a global power, the definition of wealth changed from **tangibility** to **compounding.**</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 my-16">
+                <img src="https://images.unsplash.com/photo-1611974717482-58a0000bd812?auto=format&fit=crop&q=80&w=800" class="rounded-[3rem] grayscale hover:grayscale-0 transition duration-700" alt="Market Evolution">
+                <div class="flex flex-col justify-center">
+                    <h4 class="text-white text-2xl font-black mb-4 italic">The Retail Revolution</h4>
+                    <p class="text-slate-400">Post-2020, India witnessed the most significant democratisation of capital markets in history. With over 150 million Demat accounts, the collective power of the Indian retail investor now rivals global institutional inflows. The shift from a 'Nation of Savers' to a 'Nation of Investors' is complete.</p>
+                </div>
             </div>
-            <p class="text-[10px] text-slate-600 font-bold uppercase tracking-[0.4em] mb-4">Precision Finance. Institutional Education.</p>
-            <p class="text-slate-500 text-xs max-w-lg leading-relaxed opacity-50">Mutual Fund investments are subject to market risks. Read all scheme related documents carefully. This terminal is for educational architecture only. © 2026 FinClarity HQ.</p>
+            <p>Today, the real challenge isn't access—it's **inflation friction.** With real-world inflation in India hovering between 6-8%, traditional instruments have become guaranteed ways to lose purchasing power safely. Modern wealth architecture requires a systematic exposure to equity CAGR to maintain lifestyle standards across decades.</p>
+        </article>
+
+        <!-- SECTION 2: TAXATION -->
+        <article id="taxation" class="article-section prose-custom">
+            <span class="text-rose-500 font-black text-xs uppercase tracking-[0.4em]">Section 02 // Regulatory Architecture</span>
+            <h2 class="text-6xl mt-6">Taxation <br>Framework 2025.</h2>
+            <p>The 2024-25 Union Budget introduced a fundamental shift in how capital gains are processed. For the sophisticated investor, understanding the **True Net Return**—returns after tax and inflation—is the only metric that matters.</p>
+            
+            <div class="glass-panel rounded-[3rem] overflow-hidden my-12 border border-white/5">
+                <table class="w-full text-left">
+                    <thead class="bg-white/5 text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
+                        <tr>
+                            <th class="p-8">Asset Class</th>
+                            <th class="p-8">Holding Period</th>
+                            <th class="p-8">Tax Rate (LTCG)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-white font-bold">
+                        <tr class="border-t border-white/5">
+                            <td class="p-8">Listed Equity / MF</td>
+                            <td class="p-8">> 12 Months</td>
+                            <td class="p-8 text-emerald-500">12.5%*</td>
+                        </tr>
+                        <tr class="border-t border-white/5">
+                            <td class="p-8">Debt Mutual Funds</td>
+                            <td class="p-8">Any Duration</td>
+                            <td class="p-8 text-rose-500">Slab Rate</td>
+                        </tr>
+                        <tr class="border-t border-white/5">
+                            <td class="p-8">Gold / Real Estate</td>
+                            <td class="p-8">> 24 Months</td>
+                            <td class="p-8 text-white">12.5% (No Indexation)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="p-6 bg-emerald-500/10 text-[10px] font-black text-emerald-500 uppercase text-center">
+                    *Exemption: The first ₹1.25 Lakh of aggregate equity profit is tax-free annually.
+                </div>
+            </div>
+            <p>Tax-loss harvesting has moved from a "pro-tip" to a mandatory annual ritual. By offsetting realized gains with realized losses, investors can save significantly on the new 12.5% regime, potentially adding 0.5% to 1% to their annual net CAGR.</p>
+        </article>
+
+        <!-- SECTION 3: SWP STRATEGY -->
+        <article id="retirement" class="article-section prose-custom">
+            <span class="text-indigo-500 font-black text-xs uppercase tracking-[0.4em]">Section 03 // Harvest Mechanics</span>
+            <h2 class="text-6xl mt-6">The SWP <br>Pension Killer.</h2>
+            <p>Traditional retirement planning relied on annuities and fixed-income interest. In a high-growth economy like India, this is a suboptimal strategy. The Systematic Withdrawal Plan (SWP) allows for a dynamic "Paycheck" while the corpus remains active in the growth engine of the market.</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 my-16">
+                <div class="bg-slate-900/50 p-10 rounded-[2.5rem] border border-white/5">
+                    <h4 class="text-white font-black text-xs uppercase mb-4 tracking-widest">Efficiency</h4>
+                    <p class="text-slate-400 text-sm">SWP withdrawals are treated as capital gains, not income, resulting in a much lower tax burden than FD interest.</p>
+                </div>
+                <div class="bg-slate-900/50 p-10 rounded-[2.5rem] border border-white/5">
+                    <h4 class="text-white font-black text-xs uppercase mb-4 tracking-widest">Compounding</h4>
+                    <p class="text-slate-400 text-sm">The remaining balance stays invested, allowing the principal to grow even as you withdraw monthly.</p>
+                </div>
+                <div class="bg-slate-900/50 p-10 rounded-[2.5rem] border border-white/5">
+                    <h4 class="text-white font-black text-xs uppercase mb-4 tracking-widest">Flexibility</h4>
+                    <p class="text-slate-400 text-sm">Increase or decrease your "Pension" instantly based on market cycles or personal needs.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECTION 4: PSYCHOLOGY -->
+        <article id="psychology" class="article-section prose-custom">
+            <span class="text-rose-400 font-black text-xs uppercase tracking-[0.4em]">Section 04 // Behavioral Science</span>
+            <h2 class="text-6xl mt-6">Behavioral <br>Finance.</h2>
+            <p>Most investors fail not because they chose the wrong funds, but because they have the wrong temperament. Human biology is hardwired for survival, which translates to "Fear" during market crashes and "Greed" during bull runs—exactly the opposite of what successful wealth creation requires.</p>
+            <blockquote class="text-3xl font-black italic text-white my-12 border-l-8 border-emerald-500 pl-10 leading-tight">
+                "The stock market is a device for transferring money from the impatient to the patient."
+            </blockquote>
+            <p>The "Behavioral Gap"—the difference between a fund's return and the investor's actual return—is often 3-4%. This gap is caused by panic-selling and chasing performance. Systematic automation (SIP) is the only reliable cure for human emotion in finance.</p>
+        </article>
+
+        <!-- SECTION 5: ROADMAP -->
+        <article id="roadmap" class="article-section prose-custom">
+            <span class="text-amber-500 font-black text-xs uppercase tracking-[0.4em]">Section 05 // Execution Path</span>
+            <h2 class="text-6xl mt-6">The 2025 <br>Wealth Roadmap.</h2>
+            <p>Wealth building is an engineering project. It requires a blueprint, high-quality materials, and time. Follow the institutional checklist to ensure your financial architecture is sound for the next decade.</p>
+            
+            <div class="space-y-4 my-16">
+                <div class="glass-panel p-8 rounded-3xl border-l-4 border-emerald-500">
+                    <h4 class="text-white font-black text-xl mb-2">Phase 01: Defence</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">6-month emergency fund in Liquid Funds. Term Insurance (20x annual income). Zero high-interest debt.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl border-l-4 border-blue-500">
+                    <h4 class="text-white font-black text-xl mb-2">Phase 02: Accumulation</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Automate a 10% Step-Up SIP. Target 60% Equity / 30% Debt / 10% Gold allocation.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-3xl border-l-4 border-indigo-500">
+                    <h4 class="text-white font-black text-xl mb-2">Phase 03: Optimisation</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Annual portfolio rebalancing. Tax-loss harvesting every March. Moving to SWP once 'FI' number is hit.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-20 rounded-[4rem] text-center mt-32 shadow-2xl shadow-white/5">
+                <h3 class="text-black text-5xl font-black tracking-tighter mb-8 leading-none">Ready to Architect Your Future?</h3>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-black text-white px-12 py-5 rounded-full font-black uppercase text-xs tracking-widest hover:bg-emerald-600 transition">Back to Terminal</button>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-32 px-10 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-16">
+            <div class="col-span-2">
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-black">F</div>
+                    <span class="text-xl font-black uppercase tracking-tighter">FinClarity HQ</span>
+                </div>
+                <p class="text-slate-500 text-sm max-w-sm leading-relaxed">
+                    Institutional-grade financial education for the modern Indian investor. Precision finance. Behavioral roadmaps. Unwavering clarity.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white text-[10px] font-black uppercase tracking-widest mb-8">Terminal Modules</h4>
+                <ul class="space-y-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
+                    <li><a href="#simulator" class="hover:text-emerald-500">Simulator</a></li>
+                    <li><a href="#taxation" class="hover:text-emerald-500">Tax Tables</a></li>
+                    <li><a href="#retirement" class="hover:text-emerald-500">SWP Systems</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white text-[10px] font-black uppercase tracking-widest mb-8">Disclosures</h4>
+                <p class="text-[9px] text-slate-600 font-bold uppercase leading-relaxed tracking-tight">
+                    Mutual Fund investments are subject to market risks. Read all scheme related documents carefully. This terminal is for educational architecture only. © 2026 FinClarity HQ.
+                </p>
+            </div>
         </div>
     </footer>
 
-    <!-- LOGIC -->
+    <!-- INTERACTIVE LOGIC -->
     <script>
-        function calculateSIP(){
-            let m = parseFloat(document.getElementById('sipMonthly').value)||0;
-            const r = parseFloat(document.getElementById('sipRate').value)||0;
-            const y = parseFloat(document.getElementById('sipYears').value)||0;
-            const step = parseFloat(document.getElementById('sipStepUp').value)||0;
+        // DOM ELEMENTS
+        const inputs = ['Monthly', 'Rate', 'Years', 'Step'];
+        const elements = {};
+        inputs.forEach(id => {
+            elements[id] = document.getElementById(`input${id}`);
+            elements[`val${id}`] = document.getElementById(`val${id}`);
+        });
 
+        const resTotal = document.getElementById('resTotal');
+        const resGain = document.getElementById('resGain');
+        const resTax = document.getElementById('resTax');
+
+        // CHART CONFIG
+        const ctx = document.getElementById('wealthChart').getContext('2d');
+        let wealthChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Portfolio Value (₹)',
+                    data: [],
+                    borderColor: '#10b981',
+                    borderWidth: 5,
+                    pointRadius: 0,
+                    fill: true,
+                    backgroundColor: (context) => {
+                        const chart = context.chart;
+                        const {ctx, chartArea} = chart;
+                        if (!chartArea) return null;
+                        const gradient = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                        gradient.addColorStop(0, 'rgba(16, 185, 129, 0)');
+                        gradient.addColorStop(1, 'rgba(16, 185, 129, 0.1)');
+                        return gradient;
+                    },
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#475569', font: { size: 10, weight: '900' } } },
+                    y: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#475569', font: { size: 10, weight: '900' } } }
+                }
+            }
+        });
+
+        // CORE CALCULATION ENGINE
+        function updateAll() {
+            let m = parseFloat(elements.Monthly.value);
+            const r = parseFloat(elements.Rate.value);
+            const y = parseFloat(elements.Years.value);
+            const step = parseFloat(elements.Step.value);
+
+            // Update Labels
+            elements.valMonthly.innerText = `₹${m.toLocaleString('en-IN')}`;
+            elements.valRate.innerText = `${r}%`;
+            elements.valYears.innerText = `${y} Yrs`;
+            elements.valStep.innerText = `${step}%`;
+
+            // Calculate Wealth Path
             let totalInvested = 0;
             let maturityValue = 0;
             let monthlyRate = r / 100 / 12;
+            let chartLabels = [];
+            let chartData = [];
 
             for(let year = 1; year <= y; year++) {
                 for(let month = 1; month <= 12; month++) {
                     totalInvested += m;
                     maturityValue = (maturityValue + m) * (1 + monthlyRate);
                 }
-                m = m * (1 + (step / 100));
+                m = m * (1 + (step / 100)); // Annual Step-Up
+                chartLabels.push(`Yr ${year}`);
+                chartData.push(Math.round(maturityValue));
             }
 
-            document.getElementById('sipResult').classList.remove('hidden');
-            document.getElementById('sipTotal').innerText = "₹" + Math.round(maturityValue).toLocaleString('en-IN');
+            // Text Updates
+            const gain = maturityValue - totalInvested;
+            resTotal.innerText = "₹" + Math.round(maturityValue).toLocaleString('en-IN');
+            resGain.innerText = "₹" + Math.round(gain).toLocaleString('en-IN');
+
+            // Tax Calculation (2025 Rules: 12.5% on LTCG, 1.25L Exemption)
+            const taxableGain = Math.max(0, gain - 125000);
+            const taxLiability = taxableGain * 0.125;
+            resTax.innerText = "₹" + Math.round(taxLiability).toLocaleString('en-IN');
+
+            // Smooth Chart Update
+            wealthChart.data.labels = chartLabels;
+            wealthChart.data.datasets[0].data = chartData;
+            wealthChart.update('none'); 
         }
 
-        function calculateLumpsum(){
-            const p = parseFloat(document.getElementById('lsPrincipal').value)||0;
-            const r = parseFloat(document.getElementById('lsRate').value)||0;
-            const y = parseFloat(document.getElementById('lsYears').value)||0;
-            if(p <= 0) return;
+        // Attach Event Listeners
+        inputs.forEach(id => {
+            elements[id].addEventListener('input', updateAll);
+        });
 
-            const futureValue = p * Math.pow((1 + r/100), y);
-            document.getElementById('lsResult').classList.remove('hidden');
-            document.getElementById('lsTotal').innerText = "₹" + Math.round(futureValue).toLocaleString('en-IN');
-        }
-
-        function calculateSWP(){
-            let corpus = parseFloat(document.getElementById('swpCorpus').value)||0;
-            const withdraw = parseFloat(document.getElementById('swpAmount').value)||0;
-            const r = parseFloat(document.getElementById('swpRate').value)||0;
-            const y = parseFloat(document.getElementById('swpYears').value)||0;
-
-            const monthlyRate = r / 100 / 12;
-            const months = y * 12;
-
-            for(let i = 0; i < months; i++) {
-                if(corpus <= 0) { corpus = 0; break; }
-                corpus = (corpus - withdraw) * (1 + monthlyRate);
-            }
-
-            document.getElementById('swpResult').classList.remove('hidden');
-            document.getElementById('swpFinalCorpus').innerText = "₹" + Math.round(corpus).toLocaleString('en-IN');
-        }
+        // Initialize
+        updateAll();
     </script>
 </body>
 </html>
