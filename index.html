@@ -6,63 +6,103 @@
 
 <title>FinClarity HQ | SIP, Lumpsum & SWP Calculators | Indian Finance Education</title>
 
-<meta name="description" content="FinClarity HQ is an education-first Indian finance platform offering SIP, Lumpsum and SWP calculators, taxation clarity, inflation awareness, and long-term investing education.">
+<meta name="description" content="FinClarity HQ is an education-first Indian finance platform explaining SIP, Lumpsum, SWP, taxation and long-term investing with institutional-grade calculators.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="FinClarity HQ">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================= GLOBAL ================= */
+:root{
+  --primary:#065f46;
+  --accent:#16a34a;
+  --bg:#f0fdf4;
+  --text:#052e16;
+  --card:#ffffff;
+}
+
+/* ===== BASE ===== */
 body{
   margin:0;
-  font-family:'Poppins',sans-serif;
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
   background:linear-gradient(180deg,#ecfeff,#ffffff);
-  color:#083344;
+  color:var(--text);
+  line-height:1.9;
 }
 a{text-decoration:none}
-p{line-height:1.9}
 
-/* ================= NAV ================= */
+/* ===== NAV ===== */
 .top-nav{
   position:sticky;
   top:0;
   z-index:1000;
-  background:linear-gradient(135deg,#0f766e,#14b8a6);
-  padding:14px 10px;
+  background:linear-gradient(135deg,#065f46,#047857);
+  padding:14px 12px;
   text-align:center;
 }
 .top-nav a{
-  color:#ecfeff;
+  color:#ecfdf5;
   margin:0 14px;
   font-weight:600;
   font-size:15px;
 }
 .top-nav a:hover{text-decoration:underline}
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 header{
   text-align:center;
-  padding:90px 20px;
+  padding:90px 20px 70px;
   background:linear-gradient(135deg,#14b8a6,#2dd4bf);
   color:white;
   border-bottom-left-radius:50px;
   border-bottom-right-radius:50px;
 }
-header h1{font-size:2.8rem;margin-bottom:12px}
-header p{max-width:800px;margin:auto;font-size:1.08rem;opacity:0.95}
+header h1{
+  font-size:2.9rem;
+  margin-bottom:14px;
+}
+header p{
+  max-width:820px;
+  margin:auto;
+  font-size:1.08rem;
+  opacity:0.95;
+}
 
-/* ================= SECTIONS ================= */
+/* ===== SECTIONS ===== */
 section{
   max-width:1100px;
-  margin:55px auto;
-  background:white;
-  padding:45px;
-  border-radius:28px;
-  box-shadow:0 18px 45px rgba(0,0,0,0.08);
+  margin:65px auto;
+  padding:0 20px;
 }
-h2{text-align:center;color:#0f766e;margin-bottom:25px}
-h3{color:#115e59;margin-top:30px}
 
-/* ================= FORMS ================= */
+.section-card{
+  background:var(--card);
+  padding:52px;
+  border-radius:28px;
+  border:1.5px solid #bbf7d0;
+  box-shadow:0 20px 50px rgba(0,0,0,0.08);
+}
+
+h2{
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:28px;
+}
+h3{
+  color:#047857;
+  margin-top:34px;
+}
+
+/* ===== CALCULATORS ===== */
+.calculator-card{
+  margin-top:30px;
+  padding:36px;
+  border-radius:22px;
+  border:2px solid #99f6e4;
+  background:#f0fdf4;
+  box-shadow:0 16px 40px rgba(0,0,0,0.06);
+}
+
 input,button{
   width:100%;
   padding:14px;
@@ -71,118 +111,73 @@ input,button{
   border:1px solid #99f6e4;
   font-size:16px;
 }
+
 button{
-  background:#14b8a6;
+  background:linear-gradient(135deg,#14b8a6,#0f766e);
   color:white;
   font-weight:700;
   border:none;
   cursor:pointer;
 }
-button:hover{background:#0f766e}
-.result{
-  margin-top:18px;
-  padding:20px;
-  border-radius:18px;
-  background:#ccfbf1;
+button:hover{background:#065f46}
+
+/* ===== RESULTS ===== */
+.result-box{
+  margin-top:20px;
+  padding:26px;
+  border-radius:20px;
+  background:#ecfdf5;
+  border:1.5px solid #99f6e4;
   text-align:center;
-  font-size:1.7rem;
+}
+
+.result-main{
+  font-size:2.1rem;
   font-weight:700;
+  color:#065f46;
 }
 
-/* ================= INFO ================= */
-.info{color:#334155;font-size:15.8px}
-
-/* ================= FAQ ================= */
-details{
-  background:#f8fafc;
-  padding:15px 18px;
-  border-radius:12px;
-  margin-bottom:12px;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  background:#f1f5f9;
-  text-align:center;
-  padding:45px 20px;
-  color:#475569;
+.result-sub{
   font-size:14px;
+  color:#047857;
+  margin-bottom:16px;
 }
 
-/* ================= CHATBOT ================= */
-#chat-bubble{
-  position:fixed;
-  bottom:22px;
-  right:22px;
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#0f766e,#14b8a6);
-  color:white;
+.result-breakdown{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  cursor:pointer;
-  z-index:9999;
+  justify-content:space-between;
+  gap:16px;
+  font-size:14.5px;
 }
-#finclarityChat{
-  display:none;
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:360px;
-  height:540px;
-  background:white;
-  border-radius:22px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.35);
-  overflow:hidden;
-  z-index:9999;
-}
-#chatHeader{
-  background:linear-gradient(135deg,#0f766e,#14b8a6);
-  color:white;
+
+.result-breakdown div{
+  background:#ffffff;
   padding:14px;
-  font-weight:700;
+  border-radius:14px;
+  flex:1;
+  border:1px solid #d1fae5;
 }
-#chatBody{
-  padding:14px;
-  height:360px;
-  overflow-y:auto;
-  background:#f8fafc;
+
+/* ===== EDUCATION ===== */
+.info{
+  color:#334155;
+  font-size:15.8px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#022c22;
+  text-align:center;
+  padding:50px 20px;
+  color:#a7f3d0;
   font-size:14px;
-}
-.chat-q{
-  background:#cffafe;
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:8px;
-  font-weight:600;
-}
-.chat-a{
-  background:#dcfce7;
-  padding:10px;
-  border-radius:10px;
-  margin-bottom:14px;
-}
-#chatInput{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-top:1px solid #e5e7eb;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  section{padding:30px}
-  #finclarityChat{
-    width:100%;
-    height:100%;
-    bottom:0;
-    right:0;
-    border-radius:0;
-  }
-  #chatBody{height:calc(100% - 170px)}
+  header h1{font-size:2.3rem}
+  .section-card{padding:34px}
+  .result-breakdown{flex-direction:column}
 }
 </style>
 </head>
@@ -193,174 +188,159 @@ footer{
 <div class="top-nav">
   <a href="index.html">Home</a>
   <a href="pages/what-is-sip.html">What is SIP?</a>
+  <a href="pages/benefits-of-sip.html">Benefits of SIP</a>
   <a href="pages/choose-sip-mutual-fund.html">Choose SIP Fund</a>
   <a href="pages/sip-vs-lumpsum.html">SIP vs Lumpsum</a>
-  <a href="pages/taxation.html">Taxation</a>
+  <a href="pages/sip-taxation-india.html">Taxation</a>
 </div>
 
 <!-- HERO -->
 <header>
   <h1>FinClarity HQ</h1>
   <p>
-    A calm, education-first Indian finance platform helping professionals
-    understand SIPs, taxation, inflation, and long-term wealth planning —
-    without hype, speculation, or product selling.
+    An education-first Indian finance platform designed to help you understand
+    SIPs, taxation, inflation, and long-term investing — without advice or speculation.
   </p>
 </header>
 
 <!-- SIP -->
-<section id="calculator">
-<h2>SIP Calculator</h2>
-<input id="sipMonthly" placeholder="Monthly Investment (₹)">
-<input id="sipRate" placeholder="Expected Annual Return (%)">
-<input id="sipYears" placeholder="Investment Duration (Years)">
-<button onclick="calculateSIP()">Calculate SIP Value</button>
-<div class="result" id="sipResult">₹0</div>
+<section>
+  <div class="section-card">
+    <h2>SIP Calculator</h2>
+    <div class="calculator-card">
+      <input id="sipMonthly" placeholder="Monthly Investment (₹)">
+      <input id="sipRate" placeholder="Expected Annual Return (%)">
+      <input id="sipYears" placeholder="Investment Duration (Years)">
+      <button onclick="calculateSIP()">Calculate SIP Value</button>
+
+      <div class="result-box">
+        <div class="result-main" id="sipTotal">₹0</div>
+        <div class="result-sub">Estimated Value</div>
+        <div class="result-breakdown">
+          <div><span>Invested Amount</span><br><strong id="sipInvested">₹0</strong></div>
+          <div><span>Estimated Returns</span><br><strong id="sipReturns">₹0</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- LUMPSUM -->
 <section>
-<h2>Lumpsum Calculator</h2>
-<input id="lsPrincipal" placeholder="Investment Amount (₹)">
-<input id="lsRate" placeholder="Expected Annual Return (%)">
-<input id="lsYears" placeholder="Investment Duration (Years)">
-<button onclick="calculateLumpsum()">Calculate Lumpsum Value</button>
-<div class="result" id="lsResult">₹0</div>
+  <div class="section-card">
+    <h2>Lumpsum Calculator</h2>
+    <div class="calculator-card">
+      <input id="lsPrincipal" placeholder="Investment Amount (₹)">
+      <input id="lsRate" placeholder="Expected Annual Return (%)">
+      <input id="lsYears" placeholder="Investment Duration (Years)">
+      <button onclick="calculateLumpsum()">Calculate Lumpsum Value</button>
+
+      <div class="result-box">
+        <div class="result-main" id="lsTotal">₹0</div>
+        <div class="result-sub">Estimated Value</div>
+        <div class="result-breakdown">
+          <div><span>Invested Amount</span><br><strong id="lsInvested">₹0</strong></div>
+          <div><span>Estimated Returns</span><br><strong id="lsReturns">₹0</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SWP -->
 <section>
-<h2>SWP Calculator</h2>
-<input id="swpCorpus" placeholder="Total Corpus (₹)">
-<input id="swpRate" placeholder="Expected Annual Return (%)">
-<input id="swpYears" placeholder="Withdrawal Period (Years)">
-<button onclick="calculateSWP()">Calculate Monthly SWP</button>
-<div class="result" id="swpResult">₹0</div>
+  <div class="section-card">
+    <h2>SWP Calculator</h2>
+    <div class="calculator-card">
+      <input id="swpCorpus" placeholder="Total Corpus (₹)">
+      <input id="swpRate" placeholder="Expected Annual Return (%)">
+      <input id="swpYears" placeholder="Withdrawal Period (Years)">
+      <button onclick="calculateSWP()">Calculate Monthly SWP</button>
+
+      <div class="result-box">
+        <div class="result-main" id="swpMonthly">₹0</div>
+        <div class="result-sub">Estimated Monthly Withdrawal</div>
+        <div class="result-breakdown">
+          <div><span>Total Corpus</span><br><strong id="swpCorpusOut">₹0</strong></div>
+          <div><span>Withdrawal Period</span><br><strong id="swpDuration">0 years</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->
-<section class="info">
-<h2>Understanding Long-Term Investing in India</h2>
-
-<h3>Why Long-Term Thinking Matters</h3>
-<p>
-Most financial mistakes happen not due to lack of intelligence, but due to
-short-term emotional decisions. Long-term investing works because it allows
-time for compounding, recovery from volatility, and alignment with real-life
-goals such as retirement, children’s education, and financial independence.
-</p>
-
-<h3>Inflation: The Silent Risk</h3>
-<p>
-Inflation gradually erodes purchasing power. Money kept idle or growing slower
-than inflation effectively loses value. This is why understanding inflation is
-more important than chasing high returns.
-</p>
-
-<h3>Risk vs Return</h3>
-<p>
-Risk and return are related, but risk does not guarantee higher returns.
-Understanding *how much volatility you can tolerate* is more important than
-predicting markets.
-</p>
-</section>
-
-<!-- FAQ -->
 <section>
-<h2>Frequently Asked Questions</h2>
-
-<details>
-<summary>Is SIP safe?</summary>
-<p>SIP is a method of investing, not a product. Safety depends on the underlying investment and time horizon.</p>
-</details>
-
-<details>
-<summary>Is SIP better than fixed deposits?</summary>
-<p>They serve different purposes. Fixed deposits offer stability, while SIPs aim to grow wealth over long periods.</p>
-</details>
-
-<details>
-<summary>Do SIP returns fluctuate?</summary>
-<p>Yes. Market-linked investments fluctuate in the short term but may stabilise over longer durations.</p>
-</details>
-
-<details>
-<summary>How important is taxation?</summary>
-<p>Taxation significantly impacts real returns. Understanding post-tax outcomes is essential.</p>
-</details>
-
-</section>
-
-<!-- DISCLAIMER -->
-<section class="info">
-<h2>Important Disclaimer</h2>
-<p>
-FinClarity is an educational platform only. We do not provide investment,
-tax, or legal advice. Financial markets involve risk, and laws may change.
-Readers are encouraged to consult qualified professionals before making
-financial decisions.
-</p>
+  <div class="section-card info">
+    <h2>Understanding Long-Term Investing</h2>
+    <h3>Why Discipline Matters</h3>
+    <p>Sustainable wealth creation depends more on consistency and patience than prediction.</p>
+    <h3>Inflation Awareness</h3>
+    <p>Inflation silently erodes purchasing power. Long-term investing must outpace inflation.</p>
+    <h3>Risk & Volatility</h3>
+    <p>Risk does not guarantee returns. Understanding volatility tolerance is critical.</p>
+  </div>
 </section>
 
 <footer>
-<p>© 2025 FinClarity HQ · Education before action · Built for clarity, not speculation</p>
+  <p>
+    © 2026 FinClarity HQ · Education before action · Mutual fund investments are subject to market risk
+  </p>
 </footer>
 
-<!-- CHAT -->
-<div id="chat-bubble">🤖</div>
+<!-- ===== SEO SCHEMA ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is SIP?","acceptedAnswer":{"@type":"Answer","text":"SIP is a method of investing a fixed amount regularly into a mutual fund, helping investors invest with discipline and reduced timing risk."}},
+    {"@type":"Question","name":"Is SIP better than lumpsum?","acceptedAnswer":{"@type":"Answer","text":"SIP and lumpsum suit different situations. SIP suits regular income and long-term goals, while lumpsum suits surplus funds with higher risk tolerance."}},
+    {"@type":"Question","name":"Does SIP guarantee returns?","acceptedAnswer":{"@type":"Answer","text":"No. SIP does not guarantee returns. Returns depend on market performance and fund type."}}
+  ]
+}
+</script>
 
-<div id="finclarityChat">
-  <div id="chatHeader">
-    FinClarity AI
-    <span style="float:right;cursor:pointer" id="chatClose">✖</span>
-  </div>
-  <div id="chatBody"></div>
-  <input id="chatInput" placeholder="Ask about SIP, tax, inflation…">
-</div>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"FinClarity HQ",
+  "url":"https://finclarityhq.github.io/",
+  "description":"Education-first Indian finance platform explaining SIP, Lumpsum, SWP and taxation without providing investment advice.",
+  "inLanguage":"en-IN"
+}
+</script>
 
+<!-- ===== CALCULATOR LOGIC ===== -->
 <script>
-/* ========== CALCULATORS ========== */
 function calculateSIP(){
   const m=+sipMonthly.value||0,r=+sipRate.value||0,y=+sipYears.value||0;
   if(m<=0||r<=0||y<=0){alert("Enter valid values");return;}
   const mr=r/100/12,n=y*12;
-  sipResult.innerText="₹"+Math.round(m*((Math.pow(1+mr,n)-1)/mr)*(1+mr)).toLocaleString();
+  const invested=m*n;
+  const total=Math.round(m*((Math.pow(1+mr,n)-1)/mr)*(1+mr));
+  sipTotal.innerText="₹"+total.toLocaleString();
+  sipInvested.innerText="₹"+invested.toLocaleString();
+  sipReturns.innerText="₹"+(total-invested).toLocaleString();
 }
 function calculateLumpsum(){
   const p=+lsPrincipal.value||0,r=+lsRate.value||0,y=+lsYears.value||0;
   if(p<=0||r<=0||y<=0){alert("Enter valid values");return;}
-  lsResult.innerText="₹"+Math.round(p*Math.pow(1+r/100,y)).toLocaleString();
+  const total=Math.round(p*Math.pow(1+r/100,y));
+  lsTotal.innerText="₹"+total.toLocaleString();
+  lsInvested.innerText="₹"+p.toLocaleString();
+  lsReturns.innerText="₹"+(total-p).toLocaleString();
 }
 function calculateSWP(){
   const c=+swpCorpus.value||0,r=+swpRate.value||0,y=+swpYears.value||0;
   if(c<=0||r<=0||y<=0){alert("Enter valid values");return;}
   const mr=r/100/12,n=y*12;
-  swpResult.innerText="₹"+Math.round((c*mr)/(1-Math.pow(1+mr,-n))).toLocaleString();
+  const monthly=Math.round((c*mr)/(1-Math.pow(1+mr,-n)));
+  swpMonthly.innerText="₹"+monthly.toLocaleString();
+  swpCorpusOut.innerText="₹"+c.toLocaleString();
+  swpDuration.innerText=y+" years";
 }
-
-/* ========== CHATBOT (SHORT VERSION, ALREADY UPGRADED EARLIER) ========== */
-const bubble=document.getElementById("chat-bubble"),
-chat=document.getElementById("finclarityChat"),
-closeBtn=document.getElementById("chatClose"),
-chatBody=document.getElementById("chatBody"),
-chatInput=document.getElementById("chatInput");
-
-bubble.onclick=()=>{chat.style.display="block";bubble.style.display="none";
-if(chatBody.innerHTML===""){bot("Hello 👋 I’m FinClarity AI. Ask me about SIPs, taxation, inflation or long-term investing.");}};
-closeBtn.onclick=()=>{chat.style.display="none";bubble.style.display="flex";};
-
-function user(t){const d=document.createElement("div");d.className="chat-q";d.innerText=t;chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;}
-function bot(h){const d=document.createElement("div");d.className="chat-a";d.innerHTML=h;chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;}
-
-chatInput.addEventListener("keydown",e=>{
-if(e.key==="Enter"){
-const q=chatInput.value.trim();if(!q)return;
-user(q);
-let a="I explain Indian finance calmly and clearly. Try asking about SIP, tax, or inflation.";
-if(q.toLowerCase().includes("tax")) a='Tax affects real returns. See <a href="pages/taxation.html" target="_blank">Taxation in India</a>.';
-if(q.toLowerCase().includes("sip")) a='SIP allows disciplined investing over time. <a href="pages/what-is-sip.html" target="_blank">Learn more</a>.';
-bot(a);chatInput.value="";
-}});
 </script>
 
 </body>
