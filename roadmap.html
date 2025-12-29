@@ -1,78 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 2026 Master Plan | FinClarity HQ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <title>2026 Wealth Roadmap | FinClarity HQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { background: #020617; color: #94a3b8; font-family: 'Inter', sans-serif; line-height: 1.8; }
-        .content-section { max-width: 800px; margin: 0 auto; padding: 100px 24px; }
-        h1, h2, h3 { color: #f8fafc; font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; }
-        .milestone-card { background: rgba(245, 158, 11, 0.03); border-left: 2px solid #f59e0b; padding: 2.5rem; margin: 4rem 0; border-radius: 0 2rem 2rem 0; }
-        .step-number { font-size: 0.75rem; font-weight: 900; color: #f59e0b; letter-spacing: 0.3em; margin-bottom: 1rem; display: block; }
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #cbd5e1; line-height: 1.8; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-text { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .prose h2 { color: #f8fafc; font-weight: 900; text-transform: uppercase; margin-top: 4rem; margin-bottom: 1.5rem; font-style: italic; font-size: 2.25rem; }
+        .prose h3 { color: #f59e0b; font-weight: 800; text-transform: uppercase; margin-top: 2rem; font-size: 1.25rem; }
+        .prose p { margin-bottom: 1.75rem; font-size: 1.125rem; text-align: justify; }
+        .ad-slot { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 1rem; padding: 20px; text-align: center; margin: 3rem 0; }
+        .milestone { border-left: 2px solid #f59e0b; padding-left: 2rem; margin-bottom: 4rem; position: relative; }
+        .milestone::before { content: ''; position: absolute; left: -6px; top: 0; width: 10px; height: 10px; background: #f59e0b; border-radius: 50%; }
     </style>
 </head>
-<body>
-    <!-- NAV -->
-    <nav class="h-20 border-b border-white/5 flex items-center px-12 justify-between sticky top-0 bg-[#020617]/90 backdrop-blur-md z-50">
-        <a href="index.html" class="text-white font-black tracking-tighter uppercase italic">FinClarity <span class="text-amber-500">HQ</span></a>
-        <a href="index.html" class="text-[10px] font-black uppercase text-slate-500 hover:text-white transition">← Return to Terminal</a>
+<body class="antialiased">
+    <nav class="h-20 glass-panel sticky top-0 z-50 flex items-center justify-between px-6 md:px-12">
+        <a href="index.html" class="flex items-center space-x-3">
+            <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-black font-black">F</div>
+            <span class="text-white font-black uppercase tracking-tighter">FinClarity <span class="text-amber-500">HQ</span></span>
+        </a>
+        <div class="hidden md:flex space-x-8 items-center">
+            <a href="index.html" class="text-[10px] font-black uppercase text-slate-400 hover:text-amber-400">Terminal</a>
+            <a href="taxation.html" class="text-[10px] font-black uppercase text-slate-400 hover:text-amber-400">Taxation</a>
+            <a href="retirement.html" class="text-[10px] font-black uppercase text-slate-400 hover:text-amber-400">SWP Strategy</a>
+            <a href="psychology.html" class="text-[10px] font-black uppercase text-slate-400 hover:text-amber-400">Psychology</a>
+        </div>
     </nav>
 
-    <main class="content-section">
-        <header class="mb-20">
-            <span class="text-amber-500 font-black text-[10px] uppercase tracking-[0.4em] block mb-4">Module 05 // Strategic Execution</span>
-            <h1 class="text-5xl md:text-7xl leading-none italic mb-10 text-white">The 2026 <br><span class="text-amber-600">Roadmap.</span></h1>
-            <p class="text-xl text-slate-400 font-medium italic">Deconstructing the journey from zero to Financial Independence (FI) within the Indian economic engine.</p>
-        </header>
+    <header class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <span class="text-amber-500 font-black text-[10px] uppercase tracking-[0.6em] mb-4 block">Archive Section 05 // Strategic Roadmap</span>
+        <h1 class="text-6xl md:text-[8rem] font-black text-white leading-[0.85] mb-8 italic">The 2026 <br><span class="gradient-text">Master Plan.</span></h1>
+        <p class="text-xl md:text-2xl text-slate-400 font-medium italic max-w-3xl mx-auto">
+            "Wealth is not an event; it is a project of architecture. This is the blueprint from zero to Financial Independence."
+        </p>
+    </header>
 
-        <article class="space-y-12 text-lg">
-            <p>Wealth is not an event; it is a project of architecture. Just as a skyscraper requires a foundation, structural integrity, and finishing, your financial life requires a specific sequence of execution. In 2026, with global volatility and domestic growth at a crossroads, the **FinClarity Master Plan** is your blueprint.</p>
-            
-            <div class="milestone-card">
-                <span class="step-number">PHASE 01 // FOUNDATION</span>
-                <h3 class="text-2xl text-white mb-4 italic">Defense and Fragility Management</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Before you look for returns, you must eliminate 'Ruin Risk.' This involves the <strong>Rule of Three</strong>: 1. A 6-month Emergency Fund in a Liquid Fund. 2. A Pure Term Insurance policy (20x annual income). 3. A comprehensive family Health Insurance cover with a 'Top-Up' plan.</p>
-            </div>
+    <main class="max-w-4xl mx-auto px-6 pb-40 prose">
+        <p class="text-lg text-slate-300 first-letter:text-8xl first-letter:font-black first-letter:text-amber-500 first-letter:mr-4 first-letter:float-left first-letter:leading-none">
+            As we enter 2026, the global economic engine is recalibrating. For the Indian investor, this represents a unique "Golden Window." However, navigating this window requires more than just picking a few mutual funds; it requires a disciplined, phase-based execution strategy. This Master Plan deconstructs the journey into four institutional phases.
+        </p>
 
-            <h2 class="text-3xl mt-20 mb-8 italic">I. The Accumulation Engine</h2>
-            <p>Once the foundation is set, the primary objective is **Aggressive Compounding.** The Indian market offers a unique 'Demographic Dividend,' but to capture it, you must automate your discipline. A Systematic Investment Plan (SIP) is your primary engine. However, a static SIP is a failing SIP.</p>
-            
-            <p>To outpace inflation, you must implement the <strong>10% Annual Step-Up</strong>. By increasing your investment as your career progresses, you significantly compress the time required to reach your first ₹1 Crore—often by as much as 40%.</p>
+        <div class="ad-slot"><p class="text-[9px] text-slate-600 uppercase tracking-widest">AdSense In-Article</p></div>
 
-            <div class="milestone-card" style="border-color: #10b981; background: rgba(16, 185, 129, 0.03);">
-                <span class="step-number" style="color: #10b981;">PHASE 02 // VELOCITY</span>
-                <h3 class="text-2xl text-white mb-4 italic">Portfolio Optimization</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Diversification is for wealth preservation; concentration is for wealth building. In Phase 2, move toward a 70/30 Equity-to-Debt split. Focus on Low-Cost Index Funds to capture broad market returns while using Mid-cap/Small-cap exposure to provide the 'Alpha' needed for the Ultra-Wealthy bracket.</p>
-            </div>
-
-            <h2 class="text-3xl mt-20 mb-8 italic">II. The Optimization Phase</h2>
-            <p>As your corpus grows, the enemy shifts from 'Market Volatility' to **'Tax Friction.'** This is where you implement institutional-grade tax strategies:</p>
-            
-            <ul class="space-y-6 list-none border-l border-white/10 pl-8">
-                <li><strong class="text-white uppercase text-sm block mb-1">Tax Loss Harvesting</strong>
-                    <span class="text-slate-500">Realizing losses in underperforming assets to offset gains, saving 12.5% on every rupee harvested.</span>
-                </li>
-                <li><strong class="text-white uppercase text-sm block mb-1">Asset Location</strong>
-                    <span class="text-slate-500">Keeping high-tax assets (like debt) in tax-deferred accounts (like PPF/EPF) and low-tax assets in mutual funds.</span>
-                </li>
+        <div class="milestone">
+            <h2>Phase 0: Defense Architecture</h2>
+            <p>
+                Before you look for returns, you must eliminate <strong>Ruin Risk</strong>. In 2026, the Foundation involves three non-negotiables:
+            </p>
+            <ul>
+                <li><strong>The Emergency Fund:</strong> 6 months of lifestyle expenses parked in a Liquid Mutual Fund. This is not for investment; it is for survival.</li>
+                <li><strong>Pure Term Insurance:</strong> A minimum cover of 20x your annual income. Do not mix insurance with investment (ULIPs/Endowment).</li>
+                <li><strong>Health Shield:</strong> A base family floater plan (₹10-15L) with a "Super Top-up" of ₹50L. With healthcare inflation at 12%, this is your most important asset protection.</li>
             </ul>
+        </div>
 
-            <div class="milestone-card" style="border-color: #6366f1; background: rgba(99, 102, 241, 0.03);">
-                <span class="step-number" style="color: #6366f1;">PHASE 03 // FREEDOM</span>
-                <h3 class="text-2xl text-white mb-4 italic">The SWP Switch</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">The final milestone is the 'FI Number'—typically 25x to 30x of your annual expenses. At this stage, you transition from **Accumulation** to **Distribution**, triggering the SWP mechanics discussed in Module 03.</p>
-            </div>
+        <div class="milestone">
+            <h2>Phase 1: Compounding Velocity</h2>
+            <p>
+                In this phase, your only goal is <strong>Volume</strong>. The mathematics of wealth shows that the amount you save is more important than the return you earn in the first 7 years. 
+            </p>
+            <h3>The 10% Step-Up Rule</h3>
+            <p>
+                A static SIP is a failing SIP. To reach Financial Independence (FI) in 15 years instead of 25, you must increase your SIP by at least 10% every year. This "Step-Up" captures your career growth and forces your lifestyle inflation to remain below your wealth inflation.
+            </p>
+        </div>
 
-            <h2 class="text-3xl mt-20 mb-8 italic">III. The Eternal Horizon</h2>
-            <p>True wealth is the ability to ignore money entirely. By following this roadmap, you move from the stress of 'survival' to the clarity of 'architecture.' You are no longer just a participant in the Indian economy; you are a shareholder in its future.</p>
-        </article>
+        <div class="ad-slot"><p class="text-[9px] text-slate-600 uppercase tracking-widest">AdSense Display</p></div>
 
-        <footer class="mt-32 pt-10 border-t border-white/5 text-center">
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-[10px] font-black uppercase text-amber-500 tracking-[0.4em] hover:text-white transition">End of Roadmap // Back to Top</button>
-        </footer>
+        <div class="milestone">
+            <h2>Phase 2: Portfolio Optimization</h2>
+            <p>
+                Once your corpus crosses ₹1 Crore, the enemy changes from "Savings" to "Taxes and Fees." 
+            </p>
+            <ul>
+                <li><strong>Asset Location:</strong> Keeping high-tax assets (Debt) in tax-deferred accounts (PPF/EPF) and low-tax assets (Equity) in Mutual Funds.</li>
+                <li><strong>Tax Harvesting:</strong> Annually booking ₹1.25 Lakh of profit to reset your cost basis under the new 12.5% LTCG rules.</li>
+                <li><strong>Expense Ratio Management:</strong> Moving toward Direct Plans and Low-Cost Index funds. On a ₹2 Crore portfolio, a 1% difference in fees is ₹2 Lakh per year—lost forever.</li>
+            </ul>
+        </div>
+
+        <div class="milestone">
+            <h2>Phase 3: The Freedom Switch</h2>
+            <p>
+                The final milestone is the <strong>FI Number</strong> (typically 30x your annual expenses). At this stage, you transition from "Accumulation" to "Distribution." You activate the 3-Bucket SWP strategy discussed in Module 03.
+            </p>
+            <p>
+                True Financial Independence is not about never working again; it is about having the "Physics of Wealth" so well-architected that your presence is no longer a requirement for your lifestyle.
+            </p>
+        </div>
+
+        <p class="italic text-slate-500 mt-20">
+            "The best time to start this roadmap was 10 years ago. The second best time is today."
+        </p>
     </main>
+    <footer class="bg-slate-950 py-20 px-6 border-t border-white/5 text-center">
+        <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.5em]">FinClarity HQ // The 2026 Strategic Master Plan</p>
+    </footer>
 </body>
 </html>
