@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE Terminal | Financial Independence India | FinClarity HQ</title>
+    <meta name="description" content="Professional FIRE Calculator for Indian investors. Calculate your Financial Independence number, accounting for Indian inflation, taxation, and safe withdrawal rates.">
+    
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #cbd5e1; line-height: 1.8; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-text { background: linear-gradient(135deg, #10b981 0%, #6366f1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Mobile-Optimized Sliders */
+        .slider-custom { -webkit-appearance: none; height: 8px; background: #1e293b; border-radius: 10px; outline: none; }
+        .slider-custom::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; background: #10b981; border-radius: 50%; cursor: pointer; border: 4px solid #020617; }
+
+        .prose h2 { color: #f8fafc; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; margin-top: 4rem; margin-bottom: 1.5rem; font-style: italic; font-size: 2.25rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 1rem; }
+        .prose p { margin-bottom: 1.75rem; font-size: 1.125rem; text-align: justify; }
+        .highlight-box { border-left: 4px solid #10b981; background: rgba(16, 185, 129, 0.05); padding: 2rem; margin: 3rem 0; border-radius: 0 1.5rem 1.5rem 0; }
+        
+        #fire-chart-container { height: 400px; width: 100%; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="h-20 glass-panel sticky top-0 z-50 flex items-center justify-between px-6 md:px-12">
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-black">F</div>
+                <span class="text-white font-black uppercase tracking-tighter">FinClarity <span class="text-emerald-500">HQ</span></span>
+            </a>
+        </div>
+        <div class="hidden lg:flex space-x-8 items-center">
+            <a href="index.html" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-emerald-500 transition">Terminal</a>
+            <a href="taxation.html" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-emerald-500 transition">Taxation</a>
+            <a href="retirement.html" class="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-emerald-500 transition">SWP Masterclass</a>
+            <a href="roadmap.html" class="bg-emerald-600 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full">Roadmap</a>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header class="py-20 px-6 max-w-6xl mx-auto text-center">
+        <span class="text-emerald-500 font-black text-[10px] uppercase tracking-[0.6em] mb-4 block">Institutional Tool // Phase 01</span>
+        <h1 class="text-6xl md:text-8xl font-black text-white leading-[0.85] mb-8 italic">THE FIRE <br><span class="gradient-text">TERMINAL.</span></h1>
+        <p class="text-xl md:text-2xl text-slate-400 font-medium italic leading-relaxed max-w-3xl mx-auto">
+            "Financial Independence is not about early retirement; it is about reclaiming the sovereignty of your time."
+        </p>
+    </header>
+
+    <!-- INTERACTIVE FIRE CALCULATOR -->
+    <section class="max-w-7xl mx-auto px-4 md:px-10 pb-32">
+        <div class="glass-panel p-2 rounded-[3rem] border border-white/10 shadow-2xl">
+            <div class="grid lg:grid-cols-12 gap-4">
+                
+                <!-- INPUTS -->
+                <div class="lg:col-span-4 bg-slate-900/60 p-8 md:p-10 rounded-[2.5rem] space-y-10">
+                    <h2 class="text-xs font-black uppercase tracking-widest text-emerald-500 flex items-center">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 animate-pulse"></span> Variable Input
+                    </h2>
+
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Monthly Expenses (Today)</label>
+                            <span id="valExpenses" class="text-white font-mono font-bold text-lg">₹50,000</span>
+                        </div>
+                        <input type="range" id="inputExpenses" min="10000" max="1000000" step="5000" value="50000" class="slider-custom w-full">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label class="text-[10px] font-black text-slate-500 uppercase block mb-3">Current Age</label>
+                            <input type="number" id="inputAge" value="30" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="text-[10px] font-black text-slate-500 uppercase block mb-3">FIRE Age</label>
+                            <input type="number" id="inputRetireAge" value="45" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between mb-4">
+                            <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Expected Inflation (%)</label>
+                            <span id="valInflation" class="text-white font-mono font-bold text-lg">6%</span>
+                        </div>
+                        <input type="range" id="inputInflation" min="4" max="12" step="0.5" value="6" class="slider-custom w-full">
+                    </div>
+
+                    <div class="pt-10 border-t border-white/5">
+                        <p class="text-[10px] text-slate-500 font-black uppercase mb-4 tracking-widest italic">The multiplier</p>
+                        <select id="inputMultiplier" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-400 font-bold focus:outline-none appearance-none">
+                            <option value="25">25X (Standard)</option>
+                            <option value="33" selected>33X (Institutional/Safe)</option>
+                            <option value="40">40X (Ultra/Legacy)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- OUTPUTS -->
+                <div class="lg:col-span-8 p-8 md:p-12">
+                    <div class="grid md:grid-cols-2 gap-12 mb-16">
+                        <div>
+                            <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-4">Your FIRE Number</p>
+                            <h2 id="resFireNumber" class="text-5xl md:text-7xl font-black text-white tracking-tighter leading-none">₹0</h2>
+                            <p class="text-xs text-slate-500 mt-4 italic">Adjusted for inflation at target age</p>
+                        </div>
+                        <div class="bg-emerald-500/5 p-8 rounded-3xl border border-emerald-500/10">
+                            <p class="text-[10px] font-black uppercase text-emerald-500 mb-2">Monthly Corpus Requirement</p>
+                            <p id="resFutureMonthly" class="text-3xl font-black text-white">₹0</p>
+                            <p class="text-[9px] text-slate-500 uppercase mt-4 tracking-widest">At retirement age</p>
+                        </div>
+                    </div>
+                    
+                    <div id="fire-chart-container">
+                        <canvas id="fireChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT SECTION -->
+    <article class="max-w-4xl mx-auto px-6 pb-40 prose">
+        
+        <h2>I. The Anatomy of FIRE in India</h2>
+        <p>
+            The "Financial Independence, Retire Early" (FIRE) movement, while born in the West, undergoes a radical transformation when applied to the Indian economic engine. In the United States, the movement is often built on the "4% Rule" and social safety nets. In India, the architect must account for <strong>unprecedented lifestyle inflation</strong>, a volatile currency, and the absence of socialized healthcare.
+        </p>
+        <p>
+            For an Indian investor in 2026, FIRE is not a vacation; it is a defensive maneuver against the "Employment Trap." It is the process of building a capital base large enough that the <strong>Real Return</strong> (Returns minus Inflation) can sustain one's lifestyle indefinitely.
+        </p>
+
+        <div class="highlight-box">
+            <h4 class="text-emerald-500 font-black uppercase text-xs mb-3">Institutional Truth</h4>
+            <p class="text-white font-bold italic text-xl leading-snug">
+                The "33X" Standard: While Western FIRE advocates 25X annual expenses, the higher inflation volatility in India necessitates a 33X or even 40X multiplier to ensure the principal remains robust over a 40-year drawdown period.
+            </p>
+        </div>
+
+        <h2>II. Lean FIRE vs. Fat FIRE: The Lifestyle Spectrum</h2>
+        <p>
+            Within the terminal, we distinguish between three primary levels of independence:
+        </p>
+        <ul class="text-slate-400 space-y-6 list-none pl-0">
+            <li class="bg-slate-900/50 p-6 rounded-2xl border border-white/5">
+                <strong class="text-white uppercase tracking-widest text-xs block mb-2">1. Lean FIRE:</strong> 
+                The bare-minimum architecture. Your corpus covers essential needs—housing, food, and basic healthcare. This is the stage where "work" becomes optional, but luxury is not yet accessible.
+            </li>
+            <li class="bg-slate-900/50 p-6 rounded-2xl border border-white/5">
+                <strong class="text-emerald-500 uppercase tracking-widest text-xs block mb-2">2. Standard FIRE:</strong> 
+                The institutional goal. Covers your current lifestyle adjusted for inflation, including travel, entertainment, and children's education.
+            </li>
+            <li class="bg-slate-900/50 p-6 rounded-2xl border border-white/5">
+                <strong class="text-indigo-500 uppercase tracking-widest text-xs block mb-2">3. Fat FIRE:</strong> 
+                Wealth Physics at its peak. Your corpus allows for a significant lifestyle upgrade post-retirement, accounting for luxury travel, high-end healthcare, and legacy creation.
+            </li>
+        </ul>
+
+        <h2>III. The SWR (Safe Withdrawal Rate) Post-2024</h2>
+        <p>
+            The Safe Withdrawal Rate (SWR) is the percentage of your corpus you can sell annually without depleting the principal. In the post-2024 Budget era, where <strong>12.5% LTCG</strong> is the standard, the SWR calculation has shifted. 
+        </p>
+        <p>
+            To maintain a portfolio that survives a 30-year retirement in India, your withdrawal rate should ideally not exceed <strong>3% to 3.5%</strong> of the initial corpus (inflation-adjusted annually). This conservative approach provides a buffer for "Sequence of Returns Risk"—the danger of a market crash occurring in the first few years of your retirement.
+        </p>
+
+        <div class="ad-slot bg-slate-900/40 border border-dashed border-white/10 p-12 text-center rounded-3xl my-12">
+            <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.5em] mb-4">AdSense Placeholder</p>
+            <div class="text-slate-800 italic">In-Article Content Unit</div>
+        </div>
+
+        <h2>IV. Managing the "Human Gap" in FIRE</h2>
+        <p>
+            The biggest failure in FIRE architecture isn't mathematical; it's psychological. Many investors reach their "FIRE Number" only to fall victim to <strong>One More Year (OMY) Syndrome</strong>—the fear that the math will fail. Alternatively, others retire too early without accounting for the "Identity Gap"—the loss of social status and routine that comes with leaving the workforce.
+        </p>
+        <p>
+            A successful FIRE plan includes a "Phase-Out" period: moving from a 50-hour work week to 20-hour consulting roles, testing the withdrawal strategy while still having an active income stream. This is the "Wealth Physics" approach to human temperament.
+        </p>
+
+        <h2>V. The 2026 Conclusion</h2>
+        <p>
+            As we move toward a high-growth, high-cost Indian economy, Financial Independence is no longer a luxury—it is a mandatory insurance policy against corporate obsolescence. Use this terminal to find your number, but remember: the math is just the foundation. The architecture of your life is what you build on top of it.
+        </p>
+
+    </article>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-32 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-black text-xl mb-8">F</div>
+            <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.6em] mb-8 leading-loose text-center">
+                FinClarity HQ | Professional Wealth Architecture <br>
+                Institutional Quality // Unwavering Clarity
+            </p>
+            <div class="flex space-x-10 mb-12">
+                <a href="privacy.html" class="text-[10px] font-black text-slate-500 hover:text-emerald-500 uppercase tracking-widest transition">Privacy</a>
+                <a href="terms.html" class="text-[10px] font-black text-slate-500 hover:text-emerald-500 uppercase tracking-widest transition">Terms</a>
+                <a href="contact.html" class="text-[10px] font-black text-slate-500 hover:text-emerald-500 uppercase tracking-widest transition">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC ENGINE -->
+    <script>
+        const inputs = {
+            exp: document.getElementById('inputExpenses'),
+            age: document.getElementById('inputAge'),
+            ret: document.getElementById('inputRetireAge'),
+            inf: document.getElementById('inputInflation'),
+            mul: document.getElementById('inputMultiplier'),
+            lblExp: document.getElementById('valExpenses'),
+            lblInf: document.getElementById('valInflation'),
+            resFN: document.getElementById('resFireNumber'),
+            resFM: document.getElementById('resFutureMonthly')
+        };
+
+        const ctx = document.getElementById('fireChart').getContext('2d');
+        let fireChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Required Corpus',
+                    data: [],
+                    borderColor: '#10b981',
+                    borderWidth: 4,
+                    pointRadius: 0,
+                    fill: true,
+                    backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#475569', font: { size: 9, weight: 800 } } },
+                    y: { grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#475569', font: { size: 9, weight: 800 }, callback: v => '₹' + (v/10000000).toFixed(1) + ' Cr' } }
+                }
+            }
+        });
+
+        function update() {
+            const monthlyExpToday = parseFloat(inputs.exp.value);
+            const age = parseInt(inputs.age.value);
+            const retireAge = parseInt(inputs.ret.value);
+            const inflation = parseFloat(inputs.inf.value) / 100;
+            const multiplier = parseInt(inputs.mul.value);
+
+            const yearsToRetire = retireAge - age;
+            
+            // Labels
+            inputs.lblExp.innerText = `₹${monthlyExpToday.toLocaleString('en-IN')}`;
+            inputs.lblInf.innerText = `${(inflation * 100).toFixed(1)}%`;
+
+            // Math: Future Monthly Expenses = Today's Expenses * (1 + inflation)^years
+            const futureMonthlyExpenses = monthlyExpToday * Math.pow(1 + inflation, yearsToRetire);
+            const annualFutureExpenses = futureMonthlyExpenses * 12;
+            const fireNumber = annualFutureExpenses * multiplier;
+
+            // UI Update
+            inputs.resFN.innerText = "₹" + (fireNumber / 10000000).toFixed(2) + " Cr";
+            inputs.resFM.innerText = "₹" + Math.round(futureMonthlyExpenses).toLocaleString('en-IN');
+
+            // Chart Update
+            let labels = [];
+            let data = [];
+            for(let i = 0; i <= yearsToRetire; i++) {
+                let currentFutureExp = monthlyExpToday * Math.pow(1 + inflation, i);
+                let currentFireNum = (currentFutureExp * 12) * multiplier;
+                labels.push(age + i);
+                data.push(currentFireNum);
+            }
+
+            fireChart.data.labels = labels;
+            fireChart.data.datasets[0].data = data;
+            fireChart.update('none');
+        }
+
+        [inputs.exp, inputs.age, inputs.ret, inputs.inf, inputs.mul].forEach(el => el.addEventListener('input', update));
+        update();
+    </script>
+</body>
+</html>
