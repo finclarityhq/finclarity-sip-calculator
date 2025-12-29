@@ -1,11 +1,12 @@
---- START OF FILE index.html ---
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinClarity HQ | Professional Wealth Terminal</title>
+    <title>FinClarity HQ | Institutional Wealth Terminal & Financial Hub</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional-grade wealth architecture for Indian investors. SIP, FIRE, and Education calculators combined with deep-dive institutional financial literacy.">
     
     <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -19,311 +20,187 @@
         
         /* Mobile-Optimized Sliders */
         .slider-custom { -webkit-appearance: none; height: 10px; background: #1e293b; border-radius: 10px; outline: none; }
-        .slider-custom::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; background: #10b981; border-radius: 50%; cursor: pointer; border: 4px solid #020617; box-shadow: 0 0 15px rgba(16, 185, 129, 0.3); }
+        .slider-custom::-webkit-slider-thumb { -webkit-appearance: none; width: 28px; height: 28px; background: #10b981; border-radius: 50%; cursor: pointer; border: 4px solid #020617; }
 
-        /* Chart Height Control */
         #chart-container { height: 300px; width: 100%; }
         @media (min-width: 768px) { #chart-container { height: 500px; } }
 
         /* Institutional Typography */
         h1, h2, h3, h4 { letter-spacing: -0.05em; font-weight: 900; text-transform: uppercase; }
-        .nav-link { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: #64748b; transition: 0.3s; }
+        .nav-link { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: #64748b; transition: 0.3s; }
         .nav-link:hover { color: #10b981; }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #020617; }
-        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        /* Dropdown Menu Styling */
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 200px; background: #0f172a; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; z-index: 100; }
+        .dropdown-item { display: block; padding: 8px 16px; font-size: 10px; font-weight: 800; color: #94a3b8; text-transform: uppercase; border-radius: 6px; }
+        .dropdown-item:hover { background: #1e293b; color: #10b981; }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- LIVE TRADINGVIEW TICKER (Institutional Real-Time Data) -->
+    <!-- LIVE TRADINGVIEW TICKER -->
     <div class="sticky top-0 z-[70] bg-[#020617]/90 backdrop-blur-md border-b border-white/5">
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-            "symbols": [
-                { "proName": "NSE:NIFTY", "title": "Nifty 50" },
-                { "proName": "NSE:SENSEX", "title": "Sensex" },
-                { "proName": "FX_IDC:USDINR", "title": "USD/INR" },
-                { "proName": "TVC:GOLD", "title": "Gold" },
-                { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" }
-            ],
-            "showSymbolLogo": true, "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "en"
-            }
+            { "symbols": [{ "proName": "NSE:NIFTY", "title": "Nifty 50" }, { "proName": "NSE:SENSEX", "title": "Sensex" }, { "proName": "FX_IDC:USDINR", "title": "USD/INR" }, { "proName": "TVC:GOLD", "title": "Gold" }], "colorTheme": "dark", "isTransparent": true, "displayMode": "adaptive", "locale": "en" }
             </script>
         </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (Updated to Mega-Menu) -->
     <nav class="h-20 glass-panel sticky top-12 z-50 flex items-center justify-between px-6 md:px-12 mx-2 md:mx-6 rounded-2xl mt-4">
         <div class="flex items-center space-x-4">
             <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-black shadow-2xl">F</div>
             <span class="text-xl font-black uppercase tracking-tighter hidden sm:block">FinClarity <span class="text-emerald-500 italic">Ultra</span></span>
         </div>
+
         <div class="hidden lg:flex space-x-10">
-            <a href="#simulator" class="nav-link">Terminal</a>
-            <a href="evolution.html" class="nav-link">Evolution</a>
-            <a href="taxation.html" class="nav-link">Taxation</a>
-            <a href="retirement.html" class="nav-link">SWP</a>
+            <!-- Tools Category -->
+            <div class="dropdown relative">
+                <a href="#" class="nav-link flex items-center">Terminals <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                <div class="dropdown-menu">
+                    <a href="#simulator" class="dropdown-item">SIP Terminal</a>
+                    <a href="fire-calculator.html" class="dropdown-item">FIRE Terminal</a>
+                    <a href="child-education.html" class="dropdown-item">Education Planner</a>
+                    <a href="asset-allocation.html" class="dropdown-item">Allocation Quadrant</a>
+                </div>
+            </div>
+
+            <!-- Academy Category -->
+            <div class="dropdown relative">
+                <a href="#" class="nav-link flex items-center">Academy <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></a>
+                <div class="dropdown-menu">
+                    <a href="evolution.html" class="dropdown-item">Financial Evolution</a>
+                    <a href="taxation.html" class="dropdown-item">Taxation Architecture</a>
+                    <a href="retirement.html" class="dropdown-item">SWP Masterclass</a>
+                    <a href="psychology.html" class="dropdown-item">Behavioral Finance</a>
+                    <a href="active-vs-passive.html" class="dropdown-item">Active vs Passive Lab</a>
+                    <a href="glossary.html" class="dropdown-item">Wealth Glossary</a>
+                </div>
+            </div>
+
+            <a href="roadmap.html" class="nav-link">Master Roadmap</a>
         </div>
-        <button onclick="window.location.href='roadmap.html'" class="bg-white text-black text-[10px] font-black uppercase px-6 py-2.5 rounded-full hover:bg-emerald-500 hover:text-white transition shadow-xl">Wealth Roadmap</button>
+
+        <button onclick="window.location.href='roadmap.html'" class="bg-white text-black text-[10px] font-black uppercase px-6 py-2.5 rounded-full hover:bg-emerald-500 hover:text-white transition shadow-xl">Start Plan</button>
     </nav>
 
     <!-- HERO SECTION -->
     <header class="py-20 md:py-32 px-6 text-center max-w-6xl mx-auto">
-        <div class="inline-flex items-center space-x-3 bg-emerald-500/10 border border-emerald-500/20 p-2 pr-6 rounded-full mb-8">
-            <span class="bg-emerald-500 text-black text-[10px] font-black px-2 py-1 rounded-full uppercase">Terminal v4.0</span>
-            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">Post-2024 Budget Framework</span>
-        </div>
         <h1 class="text-5xl md:text-[8.5rem] leading-none mb-8 italic font-black">Wealth <span class="gradient-text">Physics.</span></h1>
         <p class="text-slate-400 text-lg md:text-2xl font-medium max-w-3xl mx-auto leading-relaxed">
-            Institutional intelligence for the modern Indian investor. Mathematical certainty meets professional-grade financial literacy.
+            Institutional intelligence and interactive architecture for the modern Indian investor.
         </p>
     </header>
 
-    <!-- INTERACTIVE TERMINAL SECTION -->
+    <!-- SIP CALCULATOR SECTION -->
     <section id="simulator" class="px-4 md:px-10 pb-32">
-        <div class="max-w-7xl mx-auto glass-panel p-2 rounded-[2.5rem] md:rounded-[4rem] border border-white/5 shadow-2xl">
+        <div class="max-w-7xl mx-auto glass-panel p-2 rounded-[2.5rem] border border-white/5 shadow-2xl">
             <div class="grid lg:grid-cols-12 gap-2">
-                
-                <!-- TERMINAL CONTROLS -->
-                <div class="lg:col-span-4 bg-slate-900/40 p-8 md:p-12 rounded-[2rem] md:rounded-[3.8rem] space-y-10">
-                    <h2 class="text-xs font-black uppercase tracking-[0.4em] text-emerald-500 flex items-center">
-                        <span class="w-2 h-2 bg-emerald-500 rounded-full mr-4 animate-pulse"></span> Terminal Input
-                    </h2>
-                    
+                <div class="lg:col-span-4 bg-slate-900/40 p-8 md:p-12 rounded-[2rem] space-y-10">
+                    <h2 class="text-xs font-black uppercase tracking-[0.4em] text-emerald-500">SIP Terminal</h2>
                     <div class="space-y-12">
-                        <!-- Monthly SIP Slider -->
                         <div>
-                            <div class="flex justify-between mb-4">
-                                <label class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Monthly Investment</label>
-                                <span id="valMonthly" class="text-white font-mono font-bold text-lg">₹25,000</span>
-                            </div>
+                            <div class="flex justify-between mb-4"><label class="text-[10px] font-black text-slate-500 uppercase">Monthly SIP</label><span id="valMonthly" class="text-white font-mono font-bold text-lg">₹25,000</span></div>
                             <input type="range" id="inputMonthly" min="2000" max="1000000" step="1000" value="25000" class="slider-custom w-full">
                         </div>
-
-                        <!-- Numerical Inputs for Precision -->
                         <div class="grid grid-cols-2 gap-6">
-                            <div>
-                                <label class="text-[10px] font-black text-slate-500 uppercase block mb-3">Return %</label>
-                                <input type="number" id="inputRate" value="12" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none focus:border-emerald-500">
-                            </div>
-                            <div>
-                                <label class="text-[10px] font-black text-slate-500 uppercase block mb-3">Duration (Yrs)</label>
-                                <input type="number" id="inputYears" value="15" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none focus:border-emerald-500">
-                            </div>
-                        </div>
-
-                        <!-- Step Up Slider -->
-                        <div>
-                            <div class="flex justify-between mb-4">
-                                <label class="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Annual Step-Up %</label>
-                                <span id="valStep" class="text-emerald-500 font-mono font-bold text-lg">10%</span>
-                            </div>
-                            <input type="range" id="inputStep" min="0" max="25" step="1" value="10" class="slider-custom w-full">
-                        </div>
-                    </div>
-
-                    <!-- ADVANCED TAX DISPLAY -->
-                    <div class="pt-10 border-t border-white/5">
-                        <p class="text-[10px] text-slate-500 font-black uppercase mb-4 tracking-widest">2026 Tax Liability (12.5% LTCG)</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-400">Total Tax:</span>
-                            <span id="resTax" class="text-rose-500 font-mono font-black text-xl">₹0</span>
+                            <div><label class="text-[10px] font-black text-slate-500 uppercase block mb-3">Rate %</label><input type="number" id="inputRate" value="12" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none"></div>
+                            <div><label class="text-[10px] font-black text-slate-500 uppercase block mb-3">Years</label><input type="number" id="inputYears" value="15" class="bg-slate-800 w-full p-4 rounded-xl border border-white/5 font-mono text-emerald-500 font-bold focus:outline-none"></div>
                         </div>
                     </div>
                 </div>
-
-                <!-- VISUALIZATION DISPLAY -->
                 <div class="lg:col-span-8 p-8 md:p-12">
-                    <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-12">
-                        <div class="w-full">
-                            <p class="text-[10px] font-black uppercase text-slate-500 tracking-[0.3em] mb-4">Projected Maturity Corpus</p>
-                            <h2 id="resTotal" class="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none break-all">₹0</h2>
-                        </div>
-                        <div class="bg-emerald-500/10 p-6 rounded-3xl border border-emerald-500/20 w-full md:w-auto text-center md:text-left">
-                            <p class="text-[10px] font-black uppercase text-emerald-500 mb-2">Net Wealth Gain</p>
-                            <p id="resGain" class="text-3xl font-black text-white">₹0</p>
-                        </div>
+                    <div class="flex flex-col md:flex-row justify-between mb-12">
+                        <div><p class="text-[10px] font-black uppercase text-slate-500 mb-4">Maturity Corpus</p><h2 id="resTotal" class="text-5xl md:text-8xl font-black text-white">₹0</h2></div>
                     </div>
-                    
-                    <div id="chart-container">
-                        <canvas id="wealthChart"></canvas>
-                    </div>
+                    <div id="chart-container"><canvas id="wealthChart"></canvas></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- INTELLIGENCE MODULES GRID -->
+    <!-- HUB MODULES GRID (Includes All New Pages) -->
     <section id="modules" class="max-w-7xl mx-auto px-6 pb-32">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-                <h2 class="text-4xl font-black text-white uppercase tracking-tighter italic">Intelligence Modules</h2>
-                <p class="text-slate-500 mt-2 font-medium">Deep-dive institutional reports (3,000+ words each).</p>
-            </div>
-        </div>
-
+        <h2 class="text-4xl font-black text-white uppercase tracking-tighter italic mb-16">Intelligence Grid</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Module 01 -->
-            <a href="evolution.html" class="glass-panel p-10 rounded-[3rem] hover:border-emerald-500 transition-all group flex flex-col justify-between min-h-[350px]">
-                <div>
-                    <span class="text-emerald-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Section 01</span>
-                    <h3 class="text-3xl text-white mb-6 group-hover:text-emerald-400 transition leading-tight">The Evolution <br>of Indian Finance.</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Tracing the journey from License Raj and Gold to the SIP-led Equity revolution.</p>
-                </div>
-                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Enter Archive →</p>
+            
+            <!-- Tools Section -->
+            <a href="fire-calculator.html" class="glass-panel p-10 rounded-[3rem] border-emerald-500/20 hover:border-emerald-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-emerald-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Tool 01</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-emerald-400 transition leading-tight">FIRE <br>Terminal.</h3>
+                <p class="text-slate-500 text-sm">Calculate your financial independence number adjusted for Indian inflation.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Open Terminal →</p>
             </a>
 
-            <!-- Module 02 -->
-            <a href="taxation.html" class="glass-panel p-10 rounded-[3rem] hover:border-rose-500 transition-all group flex flex-col justify-between min-h-[350px]">
-                <div>
-                    <span class="text-rose-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Section 02</span>
-                    <h3 class="text-3xl text-white mb-6 group-hover:text-rose-400 transition leading-tight">Taxation <br>Architecture.</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Navigating the post-2024 landscape of 12.5% LTCG and advanced loss harvesting.</p>
-                </div>
-                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Enter Archive →</p>
+            <a href="child-education.html" class="glass-panel p-10 rounded-[3rem] border-blue-500/20 hover:border-blue-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-blue-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Tool 02</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-blue-400 transition leading-tight">Education <br>Planner.</h3>
+                <p class="text-slate-500 text-sm">Hedging against 12% education inflation for future degrees.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Plan Now →</p>
             </a>
 
-            <!-- Module 03 -->
-            <a href="retirement.html" class="glass-panel p-10 rounded-[3rem] hover:border-indigo-500 transition-all group flex flex-col justify-between min-h-[350px]">
-                <div>
-                    <span class="text-indigo-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Section 03</span>
-                    <h3 class="text-3xl text-white mb-6 group-hover:text-indigo-400 transition leading-tight">The SWP <br>Pension Killer.</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Math behind sustainable cash flow and the Three-Bucket retirement strategy.</p>
-                </div>
-                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Enter Archive →</p>
+            <a href="asset-allocation.html" class="glass-panel p-10 rounded-[3rem] border-amber-500/20 hover:border-amber-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-amber-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Tool 03</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-amber-400 transition leading-tight">Allocation <br>Quadrant.</h3>
+                <p class="text-slate-500 text-sm">Strategic diversification across Equity, Debt, Gold, and Global Tech.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Analyze →</p>
             </a>
 
-            <!-- Module 04 -->
-            <a href="psychology.html" class="glass-panel p-10 rounded-[3rem] hover:border-rose-400 transition-all group flex flex-col justify-between min-h-[350px]">
-                <div>
-                    <span class="text-rose-400 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Section 04</span>
-                    <h3 class="text-3xl text-white mb-6 group-hover:text-rose-300 transition leading-tight">Behavioral <br>Finance.</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Managing the Human Gap: How to build a temperament that withstands volatility.</p>
-                </div>
-                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Enter Archive →</p>
+            <!-- Academy Section -->
+            <a href="active-vs-passive.html" class="glass-panel p-10 rounded-[3rem] border-indigo-500/20 hover:border-indigo-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-indigo-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Masterclass 01</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-indigo-400 transition leading-tight">Active vs <br>Passive.</h3>
+                <p class="text-slate-500 text-sm">The mathematical truth about Alpha decay in the Indian Large-Cap space.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Read Report →</p>
             </a>
 
-            <!-- Module 05 -->
-            <a href="roadmap.html" class="glass-panel p-10 rounded-[3rem] border-amber-500/20 hover:border-amber-500 transition-all group flex flex-col justify-between min-h-[350px]">
-                <div>
-                    <span class="text-amber-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Section 05</span>
-                    <h3 class="text-3xl text-white mb-6 group-hover:text-amber-400 transition leading-tight">The 2026 <br>Master Plan.</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">The step-by-step institutional roadmap from zero to Financial Independence.</p>
-                </div>
-                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Start Roadmap →</p>
+            <a href="glossary.html" class="glass-panel p-10 rounded-[3rem] border-slate-500/20 hover:border-slate-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-slate-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Archive 02</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-slate-300 transition leading-tight">Wealth <br>Glossary.</h3>
+                <p class="text-slate-500 text-sm">50+ institutional definitions to upgrade your financial vocabulary.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Open Lexicon →</p>
+            </a>
+
+            <a href="taxation.html" class="glass-panel p-10 rounded-[3rem] border-rose-500/20 hover:border-rose-500 transition-all group min-h-[300px] flex flex-col justify-between">
+                <div><span class="text-rose-500 font-black text-[10px] uppercase tracking-[0.3em] mb-8 block">Masterclass 03</span>
+                <h3 class="text-3xl text-white mb-6 group-hover:text-rose-400 transition leading-tight">Taxation <br>Architecture.</h3>
+                <p class="text-slate-500 text-sm">Navigating 12.5% LTCG and the end of debt fund indexation.</p></div>
+                <p class="text-[10px] font-black uppercase text-slate-400 mt-8 tracking-widest">Learn More →</p>
             </a>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer class="bg-slate-950 py-32 px-6 border-t border-white/5 text-center">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <div class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-black text-xl mb-8">F</div>
-            <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.6em] mb-8 leading-loose">
-                FinClarity HQ | Professional Wealth Architecture <br>
-                Institutional Quality // Unwavering Clarity
-            </p>
-            <div class="text-[9px] text-slate-800 font-bold uppercase max-w-2xl leading-relaxed opacity-60">
-                Mutual Fund investments are subject to market risks. Read all scheme related documents carefully. This terminal is for educational architecture only and does not constitute SEBI-registered financial advice. © 2026 FinClarity HQ.
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-center space-x-10 mb-12">
+                <a href="privacy.html" class="nav-link">Privacy Policy</a>
+                <a href="terms.html" class="nav-link">Terms of Service</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
             </div>
+            <p class="text-[9px] text-slate-800 font-bold uppercase max-w-2xl mx-auto leading-relaxed opacity-60">
+                © 2026 FinClarity HQ. For educational purposes only. Mutual fund investments are subject to market risks.
+            </p>
         </div>
     </footer>
 
-    <!-- INTERACTIVE LOGIC ENGINE -->
+    <!-- INTERACTIVE SCRIPT (SIP ENGINE) -->
     <script>
-        const inputs = {
-            m: document.getElementById('inputMonthly'),
-            r: document.getElementById('inputRate'),
-            y: document.getElementById('inputYears'),
-            s: document.getElementById('inputStep'),
-            lblM: document.getElementById('valMonthly'),
-            lblS: document.getElementById('valStep'),
-            resT: document.getElementById('resTotal'),
-            resG: document.getElementById('resGain'),
-            resTax: document.getElementById('resTax')
-        };
-
+        const inputs = { m: document.getElementById('inputMonthly'), r: document.getElementById('inputRate'), y: document.getElementById('inputYears'), lblM: document.getElementById('valMonthly'), resT: document.getElementById('resTotal') };
         const ctx = document.getElementById('wealthChart').getContext('2d');
-        let wealthChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [{
-                    label: 'Portfolio Value',
-                    data: [],
-                    borderColor: '#10b981',
-                    borderWidth: 4,
-                    pointRadius: 0,
-                    fill: true,
-                    backgroundColor: 'rgba(16, 185, 129, 0.05)',
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: {
-                    x: { grid: { display: false }, ticks: { color: '#475569', font: { size: 9, weight: 800 } } },
-                    y: { grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#475569', font: { size: 9, weight: 800 } } }
-                }
-            }
-        });
-
+        let wealthChart = new Chart(ctx, { type: 'line', data: { labels: [], datasets: [{ label: 'Portfolio', data: [], borderColor: '#10b981', borderWidth: 4, pointRadius: 0, fill: true, backgroundColor: 'rgba(16, 185, 129, 0.05)', tension: 0.4 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { display: false }, ticks: { color: '#475569', font: { size: 9, weight: 800 } } }, y: { grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { color: '#475569', font: { size: 9, weight: 800 } } } } } });
         function update() {
-            let monthly = parseFloat(inputs.m.value);
-            const rate = parseFloat(inputs.r.value);
-            const years = parseFloat(inputs.y.value);
-            const step = parseFloat(inputs.s.value);
-
-            // Update Labels
+            let monthly = parseFloat(inputs.m.value); let rate = parseFloat(inputs.r.value); let years = parseFloat(inputs.y.value);
             inputs.lblM.innerText = `₹${monthly.toLocaleString('en-IN')}`;
-            inputs.lblS.innerText = `${step}%`;
-
-            let totalInvested = 0;
-            let maturityValue = 0;
-            let monthlyRate = rate / 100 / 12;
-            let labels = [];
-            let data = [];
-
-            for(let year = 1; year <= years; year++) {
-                for(let month = 1; month <= 12; month++) {
-                    totalInvested += monthly;
-                    maturityValue = (maturityValue + monthly) * (1 + monthlyRate);
-                }
-                monthly *= (1 + step/100);
-                labels.push(`Y${year}`);
-                data.push(Math.round(maturityValue));
-            }
-
-            // Calculations
-            const totalGains = maturityValue - totalInvested;
-            
-            // 2026 TAX LOGIC: 12.5% LTCG on Equity Profit over ₹1,25,000 exemption
-            const taxExemption = 125000;
-            const taxableAmount = Math.max(0, totalGains - taxExemption);
-            const taxLiability = taxableAmount * 0.125;
-
-            // Update UI
+            let maturityValue = 0; let monthlyRate = rate / 100 / 12; let labels = []; let data = [];
+            for(let year = 1; year <= years; year++) { for(let month = 1; month <= 12; month++) { maturityValue = (maturityValue + monthly) * (1 + monthlyRate); } labels.push(`Y${year}`); data.push(Math.round(maturityValue)); }
             inputs.resT.innerText = "₹" + Math.round(maturityValue).toLocaleString('en-IN');
-            inputs.resG.innerText = "₹" + Math.round(totalGains).toLocaleString('en-IN');
-            inputs.resTax.innerText = "₹" + Math.round(taxLiability).toLocaleString('en-IN');
-            
-            // Chart Update
-            wealthChart.data.labels = labels;
-            wealthChart.data.datasets[0].data = data;
-            wealthChart.update('none'); // Update without animation for slider smoothness
+            wealthChart.data.labels = labels; wealthChart.data.datasets[0].data = data; wealthChart.update('none');
         }
-
-        // Event Listeners
-        [inputs.m, inputs.r, inputs.y, inputs.s].forEach(el => el.addEventListener('input', update));
-
-        // Initial Run
+        [inputs.m, inputs.r, inputs.y].forEach(el => el.addEventListener('input', update));
         update();
     </script>
 </body>
