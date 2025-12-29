@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Child Education Planner | FinClarity HQ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        body { background: #020617; color: #cbd5e1; font-family: 'Inter', sans-serif; }
+        .input-group { background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.05); }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <span class="text-emerald-500 font-black uppercase text-xs tracking-widest">Goal-Based Architecture</span>
+                <h1 class="text-5xl md:text-7xl font-black text-white italic uppercase mt-4 leading-none">THE EDUCATION <br><span class="text-emerald-500">CORPUS.</span></h1>
+                <p class="mt-8 text-xl leading-relaxed">Education inflation in India is nearly 12%—twice the rate of standard retail inflation. If you aren't planning for hyper-inflation, you aren't planning at all.</p>
+                
+                <div class="mt-12 space-y-6">
+                    <div class="input-group">
+                        <label class="block text-[10px] font-black uppercase mb-2">Cost of Degree Today (e.g. ₹20L)</label>
+                        <input type="number" id="costNow" value="2000000" class="bg-transparent text-white text-2xl font-black focus:outline-none w-full">
+                    </div>
+                    <div class="input-group">
+                        <label class="block text-[10px] font-black uppercase mb-2">Years until College</label>
+                        <input type="number" id="yearsLeft" value="15" class="bg-transparent text-white text-2xl font-black focus:outline-none w-full">
+                    </div>
+                    <div class="bg-emerald-600 p-8 rounded-2xl mt-10">
+                        <p class="text-[10px] font-black uppercase text-emerald-100 mb-2">Required Future Corpus</p>
+                        <h2 id="futureCost" class="text-4xl font-black text-white">₹1.09 Cr</h2>
+                    </div>
+                </div>
+            </div>
+
+            <article class="prose prose-invert lg:pt-20">
+                <h2 class="text-3xl font-black italic">The Hyper-Inflation Challenge</h2>
+                <p>While the CPI (Consumer Price Index) hovers around 6%, the cost of higher education—specifically in STEM and Management—is rising at an alarming 10-12% CAGR. A degree that costs ₹20 Lakhs today will likely cost over ₹1 Crore in 15 years.</p>
+                <p>This is the <strong>"Education Debt Trap"</strong>. Most parents rely on Fixed Deposits to fund this goal. However, if your FD gives 7% and education costs rise at 12%, you are losing 5% of your purchasing power every single year. You are essentially saving your way into a deficit.</p>
+                <!-- Add 1000+ words about Asset Allocation for education, Sukanya Samriddhi vs Equity, and Foreign education hedging -->
+            </article>
+        </div>
+    </div>
+    <script>
+        function calc() {
+            const cost = document.getElementById('costNow').value;
+            const years = document.getElementById('yearsLeft').value;
+            const future = cost * Math.pow(1.12, years);
+            document.getElementById('futureCost').innerText = "₹" + (future/10000000).toFixed(2) + " Cr";
+        }
+        document.querySelectorAll('input').forEach(i => i.addEventListener('input', calc));
+    </script>
+</body>
+</html>
