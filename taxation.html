@@ -1,57 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxation Architecture | FinClarity HQ</title>
+    <meta name="description" content="A comprehensive institutional deep dive into India's capital gains tax regime post-Budget 2024. Strategies for 12.5% LTCG, tax loss harvesting, and asset location.">
+    
+    <!-- Libraries -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <title>2025 Taxation Framework | FinClarity HQ</title>
-</head>
-<body class="bg-white text-slate-900 font-['Inter'] antialiased">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <nav class="h-20 border-b border-slate-100 flex items-center px-6 justify-between sticky top-0 bg-white/90 backdrop-blur-md z-50">
-        <a href="index.html" class="font-black tracking-tighter text-xl uppercase italic">FinClarity<span class="text-emerald-600">HQ</span></a>
-        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-slate-400 hover:text-emerald-600 transition">← Back to Hub</a>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #cbd5e1; line-height: 1.8; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); }
+        .gradient-text { background: linear-gradient(135deg, #ef4444 0%, #f87171 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .prose h2 { color: #f8fafc; font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; margin-top: 4rem; margin-bottom: 1.5rem; font-style: italic; font-size: 2.25rem; }
+        .prose h3 { color: #f1f5f9; font-weight: 800; text-transform: uppercase; margin-top: 2.5rem; font-size: 1.25rem; border-left: 3px solid #ef4444; padding-left: 1rem; }
+        .prose p { margin-bottom: 1.75rem; font-size: 1.125rem; text-align: justify; }
+        .highlight-box { border: 1px solid rgba(239, 68, 68, 0.2); background: rgba(239, 68, 68, 0.03); padding: 2.5rem; margin: 3.5rem 0; border-radius: 2rem; }
+        .ad-slot { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 1rem; padding: 20px; text-align: center; margin: 3rem 0; }
+        .tag { background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 900; vertical-align: middle; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="h-20 glass-panel sticky top-0 z-50 flex items-center justify-between px-6 md:px-12">
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-rose-600 rounded-lg flex items-center justify-center text-white font-black">F</div>
+                <span class="text-white font-black uppercase tracking-tighter">FinClarity <span class="text-rose-500 italic">HQ</span></span>
+            </a>
+        </div>
+        <div class="hidden md:flex space-x-10 items-center">
+            <a href="index.html" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-rose-500 transition">Terminal</a>
+            <a href="evolution.html" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-rose-500 transition">Evolution</a>
+            <a href="retirement.html" class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-rose-500 transition">SWP Strategy</a>
+            <a href="roadmap.html" class="bg-white text-black text-[10px] font-black uppercase px-6 py-2 rounded-full">Roadmap</a>
+        </div>
     </nav>
 
-    <article class="max-w-4xl mx-auto px-6 py-24">
-        <header class="mb-16">
-            <span class="bg-emerald-50 text-emerald-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Section 02</span>
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter mt-6 mb-8 leading-none uppercase">The 2025 Tax <br><span class="text-emerald-600">Architecture.</span></h1>
-            <p class="text-2xl text-slate-500 font-medium leading-relaxed italic">"Tax is the single largest friction to compounding. To ignore it is to build wealth on a leaky foundation."</p>
-        </header>
+    <!-- HERO HEADER -->
+    <header class="py-24 px-6 max-w-5xl mx-auto text-center">
+        <span class="text-rose-500 font-black text-[10px] uppercase tracking-[0.6em] mb-4 block">Archive Section 02 // Fiscal Framework</span>
+        <h1 class="text-6xl md:text-[8rem] font-black text-white leading-[0.85] mb-8 italic">Taxation <br><span class="gradient-text">Architecture.</span></h1>
+        <p class="text-xl md:text-2xl text-slate-400 font-medium italic leading-relaxed max-w-3xl mx-auto">
+            "Taxation is the friction in the engine of compounding. To ignore it is to build your wealth on a leaky foundation."
+        </p>
+    </header>
 
-        <div class="prose prose-slate prose-lg max-w-none font-medium text-slate-700 leading-relaxed">
-            <h2 class="text-3xl font-black text-slate-900 uppercase mt-12 mb-6">1. The New Equity Regime</h2>
-            <p>Following the Union Budget 2024, India has moved to a simplified but higher-tax environment for equity. The distinction between short-term and long-term has been sharpened to discourage speculative trading and reward generational holding.</p>
-            
-            <div class="my-10 bg-slate-50 p-8 rounded-[2rem] border border-slate-100">
-                <h4 class="text-sm font-black uppercase tracking-widest text-emerald-700 mb-4">LTCG (Long Term Capital Gains)</h4>
-                <p class="mb-4 text-slate-900 font-bold">The rate has been increased from 10% to 12.5%.</p>
-                <p class="text-sm">While the rate is higher, the exemption limit has also been raised. You now pay 0% tax on the first <strong>₹1.25 Lakh</strong> of profit per financial year (previously ₹1 Lakh). For a portfolio growing at 12%, this allows for significant tax-free harvesting.</p>
-            </div>
+    <!-- MAIN CONTENT -->
+    <main class="max-w-4xl mx-auto px-6 pb-40 prose">
+        
+        <p class="text-lg text-slate-300 first-letter:text-8xl first-letter:font-black first-letter:text-rose-600 first-letter:mr-4 first-letter:float-left first-letter:leading-none">
+            Following the tectonic shifts of the Union Budget 2024, the Indian financial landscape has entered a new era of "Radical Simplification." While the government aims to streamline the tax code, the practical implication for high-net-worth investors is an increased emphasis on strategic asset location. We are no longer operating in an environment where passive holding is enough; the modern investor must be a master of fiscal architecture to preserve their real, post-tax alpha.
+        </p>
 
-            <h2 class="text-3xl font-black text-slate-900 uppercase mt-12 mb-6">2. Debt Funds: The Slab Rate Trap</h2>
-            <p>One of the most radical shifts for 2025 is the total removal of indexation benefits for Debt Mutual Funds. Regardless of whether you hold a debt fund for 3 years or 30 years, the gains are added to your taxable income and taxed at your <strong>Income Tax Slab Rate.</strong></p>
-
-            <div class="grid md:grid-cols-2 gap-6 my-10">
-                <div class="border-2 border-rose-100 p-8 rounded-3xl">
-                    <h5 class="text-rose-600 font-black uppercase text-xs mb-2">The Risk</h5>
-                    <p class="text-sm">Investors in the 30% bracket now pay nearly 1/3rd of their debt returns to the government, making traditional FDs and Debt Funds less attractive than Arbitrage Funds.</p>
-                </div>
-                <div class="border-2 border-emerald-100 p-8 rounded-3xl">
-                    <h5 class="text-emerald-600 font-black uppercase text-xs mb-2">The Pivot</h5>
-                    <p class="text-sm">Institutional investors are moving toward <strong>Equity Savings Funds</strong> or <strong>Arbitrage Funds</strong>, which enjoy Equity taxation (12.5% LTCG) while maintaining a debt-like risk profile.</p>
-                </div>
-            </div>
-
-            <h2 class="text-3xl font-black text-slate-900 uppercase mt-12 mb-6">3. Tax Loss Harvesting</h2>
-            <p>In 2025, professional investors use "Loss Harvesting" to offset the increased LTCG. If you have underperforming stocks (in loss) and winners (in profit), you can sell both. The loss cancels out the gain, reducing your total tax liability to zero.</p>
+        <!-- ADSENSE UNIT 1 -->
+        <div class="ad-slot">
+            <p class="text-[9px] text-slate-600 uppercase tracking-widest mb-2">Advertisement</p>
+            <div class="h-24 flex items-center justify-center text-slate-800 italic font-mono uppercase tracking-tighter">AdSense In-Article Display</div>
         </div>
-    </article>
 
-    <footer class="bg-slate-50 py-16 text-center border-t border-slate-100">
-        <a href="retirement.html" class="inline-block bg-slate-900 text-white px-10 py-4 rounded-full font-black uppercase text-xs tracking-widest hover:bg-emerald-600 transition">Next: Retirement Strategy →</a>
+        <h2>I. The New Equity Regime: 12.5% & 20%</h2>
+        <p>
+            The most significant update in the post-2024 framework is the harmonization of Capital Gains rates. For the equity investor, the rules have been sharpened to distinguish between the speculator and the architect. 
+        </p>
+        
+        <h3>Short-Term Capital Gains (STCG)</h3>
+        <p>
+            The STCG rate on listed equity shares and equity-oriented mutual funds (where STT is paid) has been increased from 15% to <strong>20%</strong>. This 500-basis-point jump is a clear signal from the fiscal authorities: short-term churning is being penalized. For a trader operating on thin margins, this increase can represent a 33% increase in their tax liability, making the "holding period" the most critical variable in their trade setup.
+        </p>
+
+        <h3>Long-Term Capital Gains (LTCG)</h3>
+        <p>
+            The LTCG rate has been revised from 10% to <strong>12.5%</strong>. While this increases the "tax drag," the government has provided a buffer by raising the exemption limit from ₹1 Lakh to <strong>₹1.25 Lakh</strong> per financial year. This exemption is aggregate—it applies to the sum of your gains from equity shares and equity funds.
+        </p>
+
+        <div class="highlight-box">
+            <h4 class="text-rose-500 font-black uppercase text-xs mb-3 tracking-widest">Institutional Math</h4>
+            <p class="text-white font-bold italic text-xl leading-snug mb-0">
+                The "Exemption Harvesting" Strategy: By booking exactly ₹1.25 Lakh of profit every March and reinvesting it immediately, an investor can reset their cost basis annually. Over 20 years, this simple maneuver can save over ₹15 Lakhs in terminal tax for a large portfolio.
+            </p>
+        </div>
+
+        <h2>II. The Debt Fund Trap: Slab Rates & The End of Indexation</h2>
+        <p>
+            Perhaps the most brutal change for conservative investors is the total overhaul of Debt Mutual Fund taxation. Previously, debt funds held for over 36 months enjoyed a 20% tax rate with indexation benefits—effectively allowing investors to pay tax only on gains above inflation.
+        </p>
+        <p>
+            <strong>The New Reality:</strong> For any debt fund investment made on or after April 1, 2023, all gains are now classified as Short-Term Capital Gains, regardless of the holding period. These gains are added to your total income and taxed at your <strong>applicable Income Tax Slab Rate</strong>. For an individual in the 30% bracket (effective 39% with surcharge), this is a catastrophic loss of efficiency.
+        </p>
+
+        <!-- ADSENSE UNIT 2 -->
+        <div class="ad-slot">
+            <p class="text-[9px] text-slate-600 uppercase tracking-widest mb-2">Advertisement</p>
+            <div class="h-64 flex items-center justify-center text-slate-800 italic font-mono uppercase tracking-tighter">AdSense Responsive Content Unit</div>
+        </div>
+
+        <h2>III. Advanced Strategy: Tax Loss Harvesting</h2>
+        <p>
+            In the 12.5% regime, "Harvesting" has moved from a niche trick to a core institutional practice. Tax Loss Harvesting involves selling underperforming assets at a loss to offset the gains made on winners, thereby reducing the net taxable income.
+        </p>
+
+        <h3>The Offset Rules <span class="tag">CRITICAL</span></h3>
+        <p>
+            Understanding the "Hierarchy of Offsets" is essential for any wealth architect:
+        </p>
+        <ul class="space-y-4 list-none pl-0 mb-8">
+            <li class="bg-slate-900 p-4 rounded-xl border border-white/5">
+                <strong class="text-rose-500 block mb-1 uppercase text-xs tracking-widest">Short-Term Capital Losses (STCL):</strong> 
+                Can be adjusted against both STCG and LTCG. This is the "Universal Solvent" of tax planning.
+            </li>
+            <li class="bg-slate-900 p-4 rounded-xl border border-white/5">
+                <strong class="text-rose-500 block mb-1 uppercase text-xs tracking-widest">Long-Term Capital Losses (LTCL):</strong> 
+                Can ONLY be adjusted against LTCG. If you have a loss in a long-term asset, it cannot save you from the 20% tax on a short-term gain.
+            </li>
+            <li class="bg-slate-900 p-4 rounded-xl border border-white/5">
+                <strong class="text-rose-500 block mb-1 uppercase text-xs tracking-widest">Carry Forward:</strong> 
+                Losses that cannot be offset in the current year can be carried forward for <strong>8 assessment years</strong>. This creates a "Tax Shield" that can be used to protect future windfalls.
+            </li>
+        </ul>
+
+        <h2>IV. The Pivot: Arbitrage & Equity Savings Funds</h2>
+        <p>
+            With the death of debt fund efficiency, institutional capital has pivoted to <strong>Arbitrage Funds</strong> and <strong>Equity Savings Funds</strong>. These funds are mathematically engineered to maintain more than 65% exposure to equity (using derivatives to hedge risk), thereby qualifying for <strong>Equity Taxation (12.5% LTCG)</strong> while delivering the volatility profile of a debt fund.
+        </p>
+        <p>
+            For a high-income earner, switching from a Corporate Bond Fund (30% tax) to an Arbitrage Fund (12.5% tax) is equivalent to earning a 2-3% higher coupon rate without increasing credit risk. This is the essence of Wealth Physics: optimizing the "Asset Location" rather than chasing the "Asset Return."
+        </p>
+
+        <div class="highlight-box" style="border-color: #475569; background: rgba(71, 85, 105, 0.05);">
+            <h4 class="text-slate-400 font-black uppercase text-xs mb-3 tracking-widest">Global Comparison</h4>
+            <p class="text-slate-300 text-sm leading-relaxed mb-0">
+                Despite the recent hikes, India's 12.5% LTCG remains globally competitive. For comparison, the United States levies up to 20% federal capital gains tax (plus state taxes), and many European nations exceed 25%. The Indian "Tax Alpha" lies in the ₹1.25 Lakh exemption—a unique feature that favors the disciplined retail investor over the institutional giant.
+            </p>
+        </div>
+
+        <h2>V. The 2026 Outlook: Compliance & Automation</h2>
+        <p>
+            As we move toward FY 2026, the Income Tax Department's integration with the Annual Information Statement (AIS) means that every redemption is tracked in real-time. The era of "forgetting" to report a switch between mutual fund schemes is over. Every "Switch" is a sell and a buy, triggering a tax event.
+        </p>
+        <p>
+            Successful investors in 2026 will be those who automate their tax planning. By utilizing Systematic Withdrawal Plans (SWP) instead of lump-sum redemptions, and by ensuring they never miss their annual ₹1.25 Lakh harvesting window, they can ensure that the majority of their wealth remains in the portfolio, compounding for the decades ahead.
+        </p>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-32 px-6 border-t border-white/5">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="w-12 h-12 bg-rose-600 rounded-xl flex items-center justify-center text-white font-black text-xl mx-auto mb-8 shadow-2xl">F</div>
+            <p class="text-[10px] text-slate-600 font-black uppercase tracking-[0.6em] mb-8 leading-loose">
+                FinClarity HQ | Professional Wealth Architecture <br>
+                Institutional Quality // Unwavering Clarity
+            </p>
+            <div class="flex justify-center space-x-10 mb-12">
+                <a href="#" class="text-[10px] font-black text-slate-500 hover:text-rose-500 uppercase tracking-widest transition">Privacy</a>
+                <a href="#" class="text-[10px] font-black text-slate-500 hover:text-rose-500 uppercase tracking-widest transition">Terms</a>
+                <a href="#" class="text-[10px] font-black text-slate-500 hover:text-rose-500 uppercase tracking-widest transition">Contact</a>
+            </div>
+            <p class="text-[9px] text-slate-800 font-bold uppercase max-w-2xl mx-auto leading-relaxed opacity-60">
+                Mutual Fund investments are subject to market risks. Read all scheme related documents carefully. This terminal is for educational architecture only and does not constitute SEBI-registered financial advice. © 2026 FinClarity.
+            </p>
+        </div>
     </footer>
+
 </body>
 </html>
